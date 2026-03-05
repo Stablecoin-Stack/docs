@@ -97,46 +97,27 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-<<<<<<< HEAD
             { label: 'Introduction', to: '/introduction' },
             { label: 'Architecture', to: '/impl/architecture-overview' },
             { label: 'Checkout & Wallet', to: '/impl/checkout-platform' },
             { label: 'Security Model', to: '/impl/security-model' },
-=======
-            { label: 'Introduction', to: '/docs/introduction' },
-            { label: 'Architecture', to: '/docs/impl/architecture-overview' },
-            { label: 'Checkout & Wallet', to: '/docs/impl/checkout-platform' },
-            { label: 'Security Model', to: '/docs/impl/security-model' },
->>>>>>> ca0438e2be4983b5089ef73042d86b43f5001de4
           ],
         },
         {
           title: 'Developers',
           items: [
-<<<<<<< HEAD
             { label: 'SDK & Integration', to: '/impl/sdk-integration-guide' },
             { label: 'Token Standards', to: '/impl/token-standards-support' },
             { label: 'Deployment Guide', to: '/impl/deployment-guide' },
-=======
-            { label: 'SDK & Integration', to: '/docs/impl/sdk-integration-guide' },
-            { label: 'Token Standards', to: '/docs/impl/token-standards-support' },
-            { label: 'Deployment Guide', to: '/docs/impl/deployment-guide' },
->>>>>>> ca0438e2be4983b5089ef73042d86b43f5001de4
             { label: 'GitHub', href: 'https://github.com/stablecoin-stack' },
           ],
         },
         {
           title: 'Foundation',
           items: [
-<<<<<<< HEAD
             { label: 'Vision & Principles', to: '/vision-principles' },
             { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
             { label: 'Roadmap', to: '/roadmap' },
-=======
-            { label: 'Vision & Principles', to: '/docs/vision-principles' },
-            { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
-            { label: 'Roadmap', to: '/docs/roadmap' },
->>>>>>> ca0438e2be4983b5089ef73042d86b43f5001de4
           ],
         },
         {
