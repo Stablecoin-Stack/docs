@@ -40,6 +40,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Specifications',
       items: [
+        //000
+        {
+          type: 'doc',
+          id: 'specs/ssf-specs-000/the-stablecoin-stack-overview-and-architecture',
+          label: '000 - System Overview and Architecture'
+        },
         //001
         {
           type: 'doc',
@@ -51,7 +57,7 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'specs/ssf-specs-002/settlement-contract',
           label: '002 - The Settlement Contract'
-        }
+        },
       ],
     },
     {
