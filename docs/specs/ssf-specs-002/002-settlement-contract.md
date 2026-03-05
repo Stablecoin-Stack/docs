@@ -86,11 +86,11 @@ This specification covers:
 - the complete interface of each public and external function, including parameter semantics, preconditions, postconditions, and revert conditions; and
 - the dual-signature verification pattern used to bind off-chain payment authorisations to on-chain execution.
 
-This specification does not cover the off-chain payload construction and submission protocol (addressed in [SSF-SPEC-001](../01-instant-payment-with-permitted-token-transfer-submission/01-instant-payment-with-permitted-token-transfer-submission.md)), the checkout engine session lifecycle, the merchant dashboard, or deployment and upgrade procedures.
+This specification does not cover the off-chain payload construction and submission protocol (addressed in [SSF-SPEC-001](../ssf-specs-001/001-instant-payment-with-permitted-token-transfer-submission.md)), the checkout engine session lifecycle, the merchant dashboard, or deployment and upgrade procedures.
 
 ### 2.3 Relation to SSF-SPEC-001
 
-[SSF-SPEC-001](../01-instant-payment-with-permitted-token-transfer-submission/01-instant-payment-with-permitted-token-transfer-submission.md) defines how a client constructs, signs, and submits a payment or acquirer registration payload to the Payment Processor API. The present specification defines what the Settlement Contract does once the Payment Processor broadcasts that payload on-chain. The two documents are complementary and MUST be read together to understand the full conformance surface of the Stablecoin Stack.
+[SSF-SPEC-001](../ssf-specs-001/001-instant-payment-with-permitted-token-transfer-submission.md) defines how a client constructs, signs, and submits a payment or acquirer registration payload to the Payment Processor API. The present specification defines what the Settlement Contract does once the Payment Processor broadcasts that payload on-chain. The two documents are complementary and MUST be read together to understand the full conformance surface of the Stablecoin Stack.
 
 Terminology established in SSF-SPEC-001 — including **Acquirer**, **Permit**, **Relayer**, **Payload ID**, and **Binding Signature** — is adopted without redefinition in this document. Where this specification introduces additional terms, they are defined in Section 2.5.
 
@@ -98,7 +98,7 @@ Terminology established in SSF-SPEC-001 — including **Acquirer**, **Permit**, 
 
 | Reference                                                                                                                                     | Description                                                |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [SSF-SPEC-001](../01-instant-payment-with-permitted-token-transfer-submission/01-instant-payment-with-permitted-token-transfer-submission.md) | Instant Payment With Permitted Token Transfer — Submission |
+| [SSF-SPEC-001](../ssf-specs-001/001-instant-payment-with-permitted-token-transfer-submission.md)  | Instant Payment With Permitted Token Transfer — Submission |
 | ERC-20                                                                                                                                        | Token Standard — Ethereum Improvement Proposal 20          |
 | ERC-2612                                                                                                                                      | Permit Extension for EIP-20 Signed Approvals               |
 | EIP-712                                                                                                                                       | Typed Structured Data Hashing and Signing                  |

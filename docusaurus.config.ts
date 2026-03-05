@@ -98,25 +98,25 @@ const config: Config = {
           title: 'Documentation',
           items: [
             { label: 'Introduction', to: '/docs/introduction' },
-            { label: 'Architecture', to: '/docs/architecture-overview' },
-            { label: 'Checkout & Wallet', to: '/docs/checkout-platform' },
-            { label: 'Security Model', to: '/docs/security-model' },
+            { label: 'Architecture', to: '/docs/impl/architecture-overview' },
+            { label: 'Checkout & Wallet', to: '/docs/impl/checkout-platform' },
+            { label: 'Security Model', to: '/docs/impl/security-model' },
           ],
         },
         {
           title: 'Developers',
           items: [
-            { label: 'SDK & Integration', to: '/docs/sdk-integration-guide' },
-            { label: 'Token Standards', to: '/docs/token-standards-support' },
-            { label: 'Deployment Guide', to: '/docs/deployment-guide' },
+            { label: 'SDK & Integration', to: '/docs/impl/sdk-integration-guide' },
+            { label: 'Token Standards', to: '/docs/impl/token-standards-support' },
+            { label: 'Deployment Guide', to: '/docs/impl/deployment-guide' },
             { label: 'GitHub', href: 'https://github.com/stablecoin-stack' },
           ],
         },
         {
           title: 'Foundation',
           items: [
-            { label: 'Vision & Principles', to: '/docs/vision-and-principles' },
-            { label: 'Governance', to: '/docs/governance-and-community' },
+            { label: 'Vision & Principles', to: '/docs/vision-principles' },
+            { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
             { label: 'Roadmap', to: '/docs/roadmap' },
           ],
         },
@@ -125,7 +125,7 @@ const config: Config = {
           items: [
             { label: 'Discord', href: 'https://discord.gg/your-invite' },
             { label: 'X (Twitter)', href: 'https://x.com/stablecoinstack' },
-            { label: 'Blog / Updates', to: '/blog' },
+            { label: 'Blog / Updates', to: 'https://stablecoinstack.org/blog' },
           ],
         },
       ],
