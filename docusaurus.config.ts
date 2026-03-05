@@ -11,11 +11,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://stablecoinstack.org',
+  url: 'https://docs.stablecoinstack.org',
   baseUrl: '/',
 
   organizationName: 'stablecoin-stack',
-  projectName: 'stablecoin-stack',
+  projectName: 'docs',
   onBrokenLinks: 'throw',
   //onBrokenMarkdownLinks: 'warn',
   //siteConfig.markdown.hooks.onBrokenMarkdownLinks
@@ -36,7 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: 'docs',
+          routeBasePath: '/',
           editUrl: 'https://github.com/stablecoin-stack/stablecoin-stack/tree/main/',
         },
         blog: false,
@@ -97,27 +97,27 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            { label: 'Introduction', to: '/docs/introduction' },
-            { label: 'Architecture', to: '/docs/impl/architecture-overview' },
-            { label: 'Checkout & Wallet', to: '/docs/impl/checkout-platform' },
-            { label: 'Security Model', to: '/docs/impl/security-model' },
+            { label: 'Introduction', to: '/introduction' },
+            { label: 'Architecture', to: '/impl/architecture-overview' },
+            { label: 'Checkout & Wallet', to: '/impl/checkout-platform' },
+            { label: 'Security Model', to: '/impl/security-model' },
           ],
         },
         {
           title: 'Developers',
           items: [
-            { label: 'SDK & Integration', to: '/docs/impl/sdk-integration-guide' },
-            { label: 'Token Standards', to: '/docs/impl/token-standards-support' },
-            { label: 'Deployment Guide', to: '/docs/impl/deployment-guide' },
+            { label: 'SDK & Integration', to: '/impl/sdk-integration-guide' },
+            { label: 'Token Standards', to: '/impl/token-standards-support' },
+            { label: 'Deployment Guide', to: '/impl/deployment-guide' },
             { label: 'GitHub', href: 'https://github.com/stablecoin-stack' },
           ],
         },
         {
           title: 'Foundation',
           items: [
-            { label: 'Vision & Principles', to: '/docs/vision-principles' },
+            { label: 'Vision & Principles', to: '/vision-principles' },
             { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
-            { label: 'Roadmap', to: '/docs/roadmap' },
+            { label: 'Roadmap', to: '/roadmap' },
           ],
         },
         {
