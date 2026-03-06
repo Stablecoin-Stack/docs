@@ -10,7 +10,7 @@ git checkout gh-pages || exit 1
 git rm -rf .
 cp -r /tmp/site-build/* .
 echo "docs.stablecoinstack.org" >> CNAME 
-git add build
+git add .
 git commit -m "Update site"
 git push
 git checkout main
