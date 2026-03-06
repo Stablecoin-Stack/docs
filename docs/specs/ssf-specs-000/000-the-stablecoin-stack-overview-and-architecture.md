@@ -251,7 +251,7 @@ A fully conformant Stablecoin Stack deployment consists of the following compone
 | login-server | Checkout Engine (infrastructure) | This document |
 | credentials-manager | Checkout Engine (infrastructure) | This document |
 | merchant-dashboard | Checkout Engine (merchant UI) | This document |
-| broadcast-gateway | Broadcast Layer | SSF-SPEC-001, this document |
+| wallet-gateway | Broadcast Layer | SSF-SPEC-001, this document |
 | broadcast-service | Broadcast Layer | This document |
 | broadcast-submitter | Broadcast Layer | This document |
 | balance-and-history | Broadcast Layer | This document |
@@ -320,9 +320,9 @@ The Checkout Engine comprises:
 
 The Broadcast Layer is responsible for the receipt, validation, queuing, submission, and real-time status reporting of signed payment payloads. It is the off-chain counterpart to the Settlement Contract, and the component with which the client wallet interacts directly.
 
-**broadcast-gateway** — The external entry point for wallet connections. Accepts payload submissions and maintains persistent WebSocket connections to deliver real-time status updates. All wallet-to-processor communication passes through this component.
+**wallet-gateway** — The external entry point for wallet connections. Accepts payload submissions and maintains persistent WebSocket connections to deliver real-time status updates. All wallet-to-processor communication passes through this component. This component also provides nonce retrieval and fee calculation. While these two last functions can be executed by the client wallet alone, by performing an on-chain call, the Stablecoin Stack aims at providing a model such that the wallet does depend on blockchain integration. This choice minimises the friction on building and maintaining client wallet therefore it is aligned with the general purpose of this Foundation.
 
-**broadcast-service** — Manages the internal lifecycle of a submission. Enqueues validated payloads for broadcasting and tracks each submission through a defined set of states. State transitions are published in real time to connected wallets via the broadcast-gateway. The following distinction is critical: **submission completion** means the Relayer received no revert when broadcasting the transaction to the network — it does not mean the transaction has achieved finality. Finality is confirmed later, when the corresponding event is collected by the transfer-history service after a sufficient number of block confirmations.
+**broadcast-service** — Manages the internal lifecycle of a submission. Enqueues validated payloads for broadcasting and tracks each submission through a defined set of states. State transitions are published in real time to connected wallets via the wallet-gateway. The following distinction is critical: **submission completion** means the Relayer received no revert when broadcasting the transaction to the network — it does not mean the transaction has achieved finality. Finality is confirmed later, when the corresponding event is collected by the transfer-history service after a sufficient number of block confirmations.
 
 **broadcast-submitter** — The component that holds the Relayer's funded account and submits signed payloads on-chain. This is the only component in the off-chain stack that issues Ethereum transactions.
 
@@ -351,7 +351,7 @@ A compliant Client Wallet is any application that can:
 - construct and sign a valid `PermitParams` structure using EIP-712;
 - construct and sign a valid `PayWithPermitParams` structure using EIP-712;
 - assemble a complete `TransferRequest` payload as specified in SSF-SPEC-001;
-- submit the payload to the broadcast-gateway and maintain a WebSocket connection for status updates; and
+- submit the payload to the wallet-gateway and maintain a WebSocket connection for status updates; and
 - present the payment status to the user in a clear and timely manner.
 
 The wallet MUST NOT transmit the payer's private key or seed phrase to any remote service at any time. All signing MUST be performed locally on the user's device.
@@ -424,8 +424,8 @@ This section describes the complete payment flow, from charge creation by the me
 
 ### 10.3 Phase C — Submission and Off-Chain Validation
 
-8. The wallet assembles the complete `TransferRequest` payload and submits it to the **broadcast-gateway**. A WebSocket connection is maintained for real-time status updates.
-9. The **broadcast-service** enqueues the submission and the **broadcast-gateway** acknowledges receipt.
+8. The wallet assembles the complete `TransferRequest` payload and submits it to the **wallet-gateway**. A WebSocket connection is maintained for real-time status updates.
+9. The **broadcast-service** enqueues the submission and the **wallet-gateway** acknowledges receipt.
 10. The Payment Processor performs structural, semantic, and cryptographic validation as specified in SSF-SPEC-001, Section 7. Any validation failure results in immediate rejection with a categorised error.
 
 ### 10.4 Phase D — On-Chain Settlement
@@ -561,15 +561,17 @@ The following areas are identified as priorities for future specification and im
 
 **Offline Transaction Signing** — Enabling payers to construct and sign a payment commitment without a live network connection, and to submit it when connectivity is restored. This capability is of particular importance for populations with limited or intermittent mobile network access and represents a meaningful expansion of the system's accessibility.
 
-**Multi-Network Support** — The current specifications target Ethereum-compatible networks. Extending conformance to other EVM-compatible chains and, ultimately, to non-EVM networks with equivalent programmable token standards is a planned area of future work.
+**Multi-Network Support** — The current specifications target Ethereum-compatible networks. Extending conformance to non-EVM networks with simillar or equivalent programmable token standards is a planned area of future work.
 
 **Checkout Engine API Specification** — A formal specification of the API exposed by the core-checkout-engine to merchant servers, covering session creation, charge lifecycle management, webhook delivery, and reconciliation queries.
 
-**Broadcast Layer Protocol Specification** — A formal specification of the WebSocket protocol used between the wallet and the broadcast-gateway, covering message formats, state machine definitions, and error handling.
+**Broadcast Layer Protocol Specification** — A formal specification of the WebSocket protocol used between the wallet and the wallet-gateway, covering message formats, state machine definitions, and error handling.
 
 **Wallet Certification Programme** — A conformance test suite and certification programme for third-party wallet implementations, enabling users to verify that a given wallet correctly implements the signing and submission protocols.
 
 **Acquirer Incentive Structures** — Further specification of the fee tier and pricing models available to acquirers, enabling more sophisticated market structures while preserving the on-chain enforceability of fee caps.
+
+**Ref field**  — The `ref` currently holds two values that serve distinct and non-dependant purposes. It holds the `order reference`, whic A future vertion
 
 ---
 
