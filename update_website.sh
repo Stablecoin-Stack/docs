@@ -3,6 +3,8 @@ rm -rf docs/*
 cp -r ../stablecoin-stack-spec/ssf-spec-* docs/
 npm run build
 cp -r build /tmp/site-build
+git add .
+git commit -m "--"
 #
 git checkout gh-pages || exit 1
 git rm -rf .
