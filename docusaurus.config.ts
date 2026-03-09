@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://docs.stablecoinstack.org',
+  url: 'https://specifications.stablecoinstack.org',
   baseUrl: '/',
 
   organizationName: 'stablecoin-stack',
