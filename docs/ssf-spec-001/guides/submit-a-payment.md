@@ -1,95 +1,105 @@
 ---
-sidebar_position: 2
+document: SSF-SPEC-001/guides/submit-a-payment.md
+spec: SSF-SPEC-001
+version: 1.0.0
+status: Draft
+date: 2026-03-04
+author: "Adalton Reis <reis@stablecoinstack.org>"
+organization: Stablecoin Stack Foundation
+license: Apache License 2.0
 ---
 
 # Submit a Payment
 
-Step-by-step guide for constructing, signing, and submitting a `TransferRequest` to the Payment Processor API.
+Step-by-step guide for wallet implementers. Covers the complete construction and submission of a `TransferRequest` payload.
 
-**Prerequisites:** familiarity with EIP-712 typed data signing, access to an ERC-2612-compliant stablecoin wallet, and a checkout session issued by the Checkout Engine.
-
----
-
-## Overview
-
-A payment submission requires:
-
-1. Gathering session data from the Checkout Engine
-2. Fetching on-chain state (nonce, fees)
-3. Constructing the permit parameters
-4. Signing the Permit (ERC-2612)
-5. Constructing the operation parameters
-6. Signing the operation (Binding Signature)
-7. Assembling and submitting the payload
+**Prerequisites:** read [Permit-Based Payments](../core-concepts/permit-based-payments.md) and [Dual-Signature Pattern](../core-concepts/dual-signature-pattern.md) first.
 
 ---
 
-## Step 1 — Receive the Checkout Session
+## Before You Start
 
-The Checkout Engine issues a session containing:
-
-| Field           | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| `orderRef`      | 16-byte order reference (UUID) identifying this payment session.  |
-| `beneficiary`   | Merchant's receiving address.                                     |
-| `token`         | ERC-2612 stablecoin contract address.                             |
-| `principal`     | The amount the merchant expects to receive, in token units.       |
-| `deadline`      | Unix timestamp (seconds) after which the permit will be invalid.  |
-| `acquirerId`    | 16-byte Acquirer ID, or the Zero-UUID if no acquirer is involved. |
-
-Store all of these; you will need them in subsequent steps.
+You will need:
+- the payer's private key (held locally — never transmitted)
+- the wallet-gateway base URL for your processor
+- the Settlement Contract address (from the basic-data-server)
+- the session parameters (retrieved via Ephemeral Token)
 
 ---
 
-## Step 2 — Fetch the ERC-2612 Nonce
+## Step 1 — Retrieve Session Parameters
 
-Call the token contract to retrieve the current permit nonce for the payer's address:
+Exchange the Ephemeral Token for payment parameters:
 
 ```javascript
+const session = await fetch(`${widgetUrl}/api/session`, {
+  headers: { Authorization: `Bearer ${ephemeralToken}` },
+}).then(r => r.json());
+
+// session contains:
+// {
+//   token: "0x...",           ERC-2612 stablecoin address
+//   beneficiary: "0x...",     merchant receiving address
+//   principal: "100000000",   amount in smallest token units
+//   orderReference: "0x...",  16-byte Order Reference (32-char hex)
+//   acquirerId: "0x...",      16-byte Acquirer ID (32-char hex), or Zero-UUID
+//   deadline: 1743000000,     Unix timestamp (seconds)
+// }
+```
+
+The Ephemeral Token is now invalid. Do not retry this call.
+
+---
+
+## Step 2 — Fetch Nonce and Fees
+
+```javascript
+// Option A: via wallet-gateway (recommended — no direct on-chain call needed)
+const { nonce } = await walletGateway.getNonce(ownerAddress, session.token);
+const { totalFee } = await walletGateway.calculateFees(
+  session.principal,
+  session.acquirerId
+);
+
+// Option B: direct on-chain calls
 const nonce = await tokenContract.nonces(ownerAddress);
+const totalFee = await settlementContract.calculateFees(
+  session.principal,
+  session.acquirerId
+);
+
+const permitValue = BigInt(session.principal) + BigInt(totalFee);
 ```
 
-This value must be used exactly as returned. A stale nonce will cause the on-chain `permit()` call to revert.
+`permitValue` is the total the payer must hold. This is the amount the permit will authorise.
 
 ---
 
-## Step 3 — Compute the Total Amount with Fees
-
-Call `calculateFees` on the Settlement Contract to determine the fee to add on top of the principal:
-
-```javascript
-const totalFee = await settlementContract.calculateFees(principal, acquirerId);
-const permitValue = principal + totalFee;
-```
-
-`permitValue` is the value the payer must sign. Do not use `principal` alone — the Settlement Contract will pull the full `permitValue`.
-
----
-
-## Step 4 — Construct `PermitParams`
+## Step 3 — Build `PermitParams`
 
 ```javascript
 const permitParams = {
-  owner:    ownerAddress,          // payer's wallet address
-  spender:  settlementContractAddress,
-  value:    permitValue,           // from Step 3
-  nonce:    nonce,                 // from Step 2
-  deadline: deadline,              // from the checkout session
+  owner:    ownerAddress,                   // payer's address
+  spender:  settlementContractAddress,      // Settlement Contract
+  value:    permitValue.toString(),         // total with fees
+  nonce:    nonce.toString(),
+  deadline: session.deadline,
 };
 ```
 
 ---
 
-## Step 5 — Sign the ERC-2612 Permit
+## Step 4 — Sign the Permit (Permit Signature)
 
-Produce the Permit Signature using EIP-712 typed data signing against the **token contract's** domain separator.
+Sign against the **token contract's** EIP-712 domain separator.
 
 ```javascript
-const permitDomain = {
+// EIP-712 domain for the TOKEN contract
+const tokenDomain = {
   name:              await tokenContract.name(),
   version:           "1",
   chainId:           chainId,
-  verifyingContract: tokenContractAddress,
+  verifyingContract: session.token,
 };
 
 const permitTypes = {
@@ -102,59 +112,64 @@ const permitTypes = {
   ],
 };
 
-const { v, r, s, hash } = await signer._signTypedData(
-  permitDomain,
-  permitTypes,
-  permitParams
-);
+const permitSig = await signer.signTypedData(tokenDomain, permitTypes, permitParams);
+const { v: v1, r: r1, s: s1 } = ethers.Signature.from(permitSig);
 
-const permitSig = { hash, v, r, s };
-```
+// Compute the EIP-712 digest to include in the ERC20RelayerSig object
+const permitHash = ethers.TypedDataEncoder.hash(tokenDomain, permitTypes, permitParams);
 
-Normalise `v`: if the returned value is `0` or `1`, add `27`.
-
----
-
-## Step 6 — Construct the `ref` Field
-
-Concatenate the 16-byte `orderRef` from the checkout session with the 16-byte `acquirerId`:
-
-```javascript
-// Both must be 16 bytes (32 hex chars without 0x prefix)
-const ref = "0x" + orderRef.replace("0x", "") + acquirerId.replace("0x", "");
-```
-
-If either value is absent, replace it with 16 zero bytes:
-
-```javascript
-const ZERO_16 = "00000000000000000000000000000000"; // 32 hex chars
-const ref = "0x"
-  + (orderRef  ? orderRef.replace("0x", "")  : ZERO_16)
-  + (acquirerId ? acquirerId.replace("0x", "") : ZERO_16);
-```
-
----
-
-## Step 7 — Construct `PayWithPermitParams`
-
-```javascript
-const payWithPermitParams = {
-  token:        tokenContractAddress,
-  beneficiary:  beneficiaryAddress,      // from checkout session
-  ref:          ref,                     // from Step 6
-  permitParams: permitParams,            // from Step 4
+const permitSigObj = {
+  hash: permitHash,
+  v: v1 < 27 ? v1 + 27 : v1,   // normalise 0/1 → 27/28
+  r: r1,
+  s: s1,
 };
 ```
 
 ---
 
-## Step 8 — Sign the Operation (Binding Signature)
+## Step 5 — Build `ref`
 
-Produce the Binding Signature using EIP-712 typed data signing against the **Settlement Contract's** domain separator.
+The `ref` field is always 32 bytes: the 16-byte Order Reference followed by the 16-byte Acquirer ID.
 
 ```javascript
+// Both orderReference and acquirerId are already 16-byte hex values
+// Strip the 0x prefix, concatenate, re-add prefix
+const orderRef = session.orderReference.replace("0x", "");  // 32 hex chars
+const acquirerId = session.acquirerId.replace("0x", "");    // 32 hex chars
+
+// Validate lengths
+if (orderRef.length !== 32) throw new Error("orderReference must be 16 bytes");
+if (acquirerId.length !== 32) throw new Error("acquirerId must be 16 bytes");
+
+const ref = "0x" + orderRef + acquirerId;   // 66-char hex string (32 bytes)
+```
+
+If no Order Reference: use `"0".repeat(32)`. If no Acquirer: use the Zero-UUID `"0".repeat(32)`.
+
+---
+
+## Step 6 — Build `PayWithPermitParams`
+
+```javascript
+const payWithPermitParams = {
+  token:        session.token,
+  beneficiary:  session.beneficiary,
+  ref:          ref,
+  permitParams: permitParams,
+};
+```
+
+---
+
+## Step 7 — Sign the Operation (Binding Signature)
+
+Sign against the **Settlement Contract's** EIP-712 domain separator.
+
+```javascript
+// EIP-712 domain for the SETTLEMENT CONTRACT
 const settlementDomain = {
-  name:              "StablecoinStack",
+  name:              "SettlementContract",   // verify exact name from contract
   version:           "1",
   chainId:           chainId,
   verifyingContract: settlementContractAddress,
@@ -176,78 +191,108 @@ const payWithPermitTypes = {
   ],
 };
 
-const { v, r, s, hash } = await signer._signTypedData(
+const payWithPermitSig = await signer.signTypedData(
+  settlementDomain,
+  payWithPermitTypes,
+  payWithPermitParams
+);
+const { v: v2, r: r2, s: s2 } = ethers.Signature.from(payWithPermitSig);
+
+const bindingHash = ethers.TypedDataEncoder.hash(
   settlementDomain,
   payWithPermitTypes,
   payWithPermitParams
 );
 
-const payWithPermitSig = { hash, v, r, s };
+const payWithPermitSigObj = {
+  hash: bindingHash,
+  v: v2 < 27 ? v2 + 27 : v2,
+  r: r2,
+  s: s2,
+};
 ```
 
 ---
 
-## Step 9 — Generate the `payloadId`
-
-Generate a UUID to uniquely identify this submission. Store it locally for idempotency tracking.
+## Step 8 — Assemble and Submit the `TransferRequest`
 
 ```javascript
-const payloadId = crypto.randomUUID(); // or use a UUID library
-```
+const payloadId = crypto.randomUUID();
 
----
-
-## Step 10 — Assemble and Submit the Payload
-
-```javascript
 const transferRequest = {
-  payWithPermitParams,
-  payWithPermitSig,
-  permitSig,
-  payloadId,
+  payWithPermitParams:  payWithPermitParams,
+  payWithPermitSig:     payWithPermitSigObj,
+  permitSig:            permitSigObj,
+  payloadId:            payloadId,
 };
 
-const response = await fetch("https://processor.example.com/v1/transfer", {
-  method:  "POST",
+// Open WebSocket for real-time status updates
+const ws = new WebSocket(`${walletGatewayWsUrl}?session=${payloadId}`);
+ws.onmessage = (event) => handleStatusUpdate(JSON.parse(event.data));
+
+// Submit the payload
+const response = await fetch(`${walletGatewayUrl}/api/submit`, {
+  method: "POST",
   headers: { "Content-Type": "application/json" },
-  body:    JSON.stringify(transferRequest),
+  body: JSON.stringify(transferRequest),
 });
+
+if (!response.ok) {
+  const error = await response.json();
+  // error.category: STRUCTURAL_ERROR | SEMANTIC_ERROR | CRYPTOGRAPHIC_ERROR
+  throw new Error(`Submission rejected: ${error.category} — ${error.message}`);
+}
 ```
 
-The request MUST be sent over TLS 1.2 or higher.
+---
+
+## Step 9 — Handle Status Updates
+
+```javascript
+function handleStatusUpdate(update) {
+  switch (update.status) {
+    case "QUEUED":
+      // Payload received and queued for validation
+      showToUser("Processing your payment…");
+      break;
+
+    case "BROADCAST_SUBMITTED":
+      // Relayer submitted the transaction — NOT final settlement
+      showToUser("Transaction submitted, confirming on-chain…");
+      break;
+
+    case "PAYMENT_CONFIRMED":
+      // transfer-history confirmed sufficient block depth — FINAL
+      showToUser("Payment confirmed!");
+      navigateToReceipt(update.txHash);
+      break;
+
+    case "FAILED":
+      showToUser(`Payment failed: ${update.reason}`);
+      break;
+  }
+}
+```
+
+`BROADCAST_SUBMITTED` means the Relayer did not receive a revert. It does not mean the payment has settled. Wait for `PAYMENT_CONFIRMED` before treating the payment as final.
 
 ---
 
-## Step 11 — Handle the Response
+## Common Mistakes
 
-| HTTP Status | Meaning                                                                              |
-| ----------- | ------------------------------------------------------------------------------------ |
-| `200`       | Payload accepted and transaction broadcast. Monitor the session for on-chain confirmation. |
-| `400`       | `STRUCTURAL_ERROR` or `SEMANTIC_ERROR` — check the error body for the violated rule. |
-| `422`       | `CRYPTOGRAPHIC_ERROR` — signature verification failed.                               |
-| `502`       | `BROADCAST_ERROR` — the on-chain transaction failed. Session is NOT marked as settled. |
-
-On a `SEMANTIC_ERROR` with a nonce mismatch, re-fetch the nonce (Step 2) and retry from Step 4.
-
----
-
-## Checklist
-
-- [ ] `permitParams.value` equals `principal + calculateFees(principal, acquirerId)`
-- [ ] `permitParams.nonce` is the current on-chain nonce
-- [ ] `permitParams.deadline` is in the future with sufficient margin for on-chain inclusion
-- [ ] `ref` is 32 bytes: `orderRef (16) || acquirerId (16)`, zero-padded where absent
-- [ ] `permitSig` was signed against the **token contract** domain
-- [ ] `payWithPermitSig` was signed against the **Settlement Contract** domain
-- [ ] `v` values are `27` or `28`
-- [ ] `payloadId` is stored locally before submission
-- [ ] Request is sent over HTTPS
+| Mistake | Result | Fix |
+| ------- | ------ | --- |
+| Signing permit for principal only (without fees) | On-chain revert — `transferFrom` amount exceeds allowance | Always use `calculateFees` and add fees to `permitValue` |
+| Mixing up domain separators | Invalid signature | Token domain for Permit Signature; Settlement Contract domain for Binding Signature |
+| Wrong `v` value (`0` or `1`) | Processor rejection | Normalise: if `v < 27`, add `27` |
+| Omitting `ref` or wrong length | `STRUCTURAL_ERROR` | Always `0x` + 64 hex chars; zero-pad missing parts |
+| Treating `BROADCAST_SUBMITTED` as final | Premature confirmation shown to user | Wait for `PAYMENT_CONFIRMED` |
 
 ---
 
 ## Related Documents
 
-- [Permit-Based Payments](../core-concepts/permit-based-payments.md) — conceptual background
-- [Fee Model](../../ssf-spec-002/core-concepts/fee-model.md) — how fees are calculated
-- [Payload Fields Reference](../reference/payload-fields.md) — field-level constraints
-- [SSF-SPEC-001, Section 8.1](../specifications/ssf-spec-001.md#81-payment-transfer--step-by-step) — normative step-by-step
+- [Payload Fields Reference](../reference/payload-fields.md) — complete field-level spec
+- [Fee Model](../core-concepts/fee-model.md) — fee calculation detail
+- [Dual-Signature Pattern](../core-concepts/dual-signature-pattern.md) — why two signatures, two domains
+- [Formal Specification, Section 15.1](../specifications/ssf-spec-001.md#151-payment-transfer--step-by-step) — normative submission flow
