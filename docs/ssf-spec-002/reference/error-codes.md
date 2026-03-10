@@ -2,7 +2,7 @@
 
 Complete reference for all error codes returned by the wallet-gateway in `ERROR` messages and in the `failureCategory` field of `SUBMISSION_STATUS` failure notifications.
 
-For normative definitions see [formal specification, Section 12](../specifications/ssf-spec-004.md#12-error-handling).
+For normative definitions see [formal specification, Section 12](../specifications/ssf-spec-002.md#12-error-handling).
 
 ---
 
@@ -88,5 +88,5 @@ When a `SUBMISSION_STATUS` notification carries `status: "FAILURE"`, the `failur
 ## Related Documents
 
 - [Message Type Index](./message-type-index.md)
-- [Formal Specification, Section 12](../specifications/ssf-spec-004.md#12-error-handling)
+- [Formal Specification, Section 12](../specifications/ssf-spec-002.md#12-error-handling)
 - [SSF-SPEC-001, Section 17 — Error Handling](../../ssf-spec-001/specifications/ssf-spec-001.md#17-error-handling)

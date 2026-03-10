@@ -79,6 +79,6 @@ The gateway also maintains a short-lived cache of processed message hashes to de
 ## Related Documents
 
 - [Connection Model](./connection-model.md)
-- [Formal Specification, Section 5](../specifications/ssf-spec-004.md#5-authentication-and-message-security)
+- [Formal Specification, Section 5](../specifications/ssf-spec-002.md#5-authentication-and-message-security)
 - [Guide: Connect and Authenticate](../guides/connect-and-authenticate.md)
 - [SSF-SPEC-001, Section 6 — Cryptographic Conventions](../../ssf-spec-001/specifications/ssf-spec-001.md#6-cryptographic-conventions)

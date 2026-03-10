@@ -154,6 +154,6 @@ To receive this notification, you must have an active `SUBSCRIBE_TRANSFERS` subs
 
 - [Subscribe to Updates](./subscribe-to-updates.md)
 - [Subscription Model](../core-concepts/subscription-model.md)
-- [Formal Specification, Sections 8.5 and 10](../specifications/ssf-spec-004.md#85-submit-payment-request)
+- [Formal Specification, Sections 8.5 and 10](../specifications/ssf-spec-002.md#85-submit-payment-request)
 - [SSF-SPEC-001 — Submit a Payment guide](../../ssf-spec-001/guides/submit-a-payment.md)
 - [Message Type Index](../reference/message-type-index.md)

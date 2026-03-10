@@ -20,6 +20,7 @@ Flat technical reference for all state variables, functions, and events of the S
 | Variable | Type | Description |
 | -------- | ---- | ----------- |
 | `baseFeeAmount` | `uint256` | Minimum absolute fee (in token units) charged on every transfer. |
+|`transferfee`| `uint256`| This is a percentage valuea applied to the total transfer amount. This fee is cumulative to the baseFeeAmount|
 | `maxAcquiringFee` | `uint256` | Maximum acquiring fee percentage an acquirer may configure. Enforced at registration and update. |
 | `balances` | `mapping(address => mapping(address => uint256))` | Internal balances: `token → participant → amount`. |
 | `usedHashes` | `mapping(bytes32 => bool)` | Registry of consumed Binding Signature digests. `true` = already processed, MUST revert. |

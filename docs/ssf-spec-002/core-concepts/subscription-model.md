@@ -73,6 +73,6 @@ Wallet applications MUST NOT present a payment as complete based on `SUCCESS` al
 ## Related Documents
 
 - [Connection Model](./connection-model.md)
-- [Formal Specification, Section 9](../specifications/ssf-spec-004.md#9-subscription-operations)
-- [Formal Specification, Section 10 — Asynchronous Status Notifications](../specifications/ssf-spec-004.md#10-asynchronous-status-notifications)
+- [Formal Specification, Section 9](../specifications/ssf-spec-002.md#9-subscription-operations)
+- [Formal Specification, Section 10 — Asynchronous Status Notifications](../specifications/ssf-spec-002.md#10-asynchronous-status-notifications)
 - [Guide: Subscribe to Updates](../guides/subscribe-to-updates.md)
