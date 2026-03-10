@@ -514,7 +514,6 @@ Every payment processed by the Settlement Contract is subject to two fee compone
 | Fee | Type | Recipient |
 | --- | ---- | --------- |
 | Base Fee (`baseFeeAmount`) | Absolute, in token units | Payment Processor fee recipient |
-|transferfee| Percentage|Payment Processor fee recipient |
 | Acquiring Fee | Percentage of principal | Registered Acquirer (if Acquirer ID is non-zero) |
 
 The acquiring fee is applied only when the payment includes a non-zero Acquirer ID. Payments without an Acquirer MUST use the **Zero-UUID** to suppress the acquiring fee component without reverting.
@@ -532,9 +531,6 @@ The following state variables constitute the minimal persistent state that a con
 ```solidity
 /// @notice Minimum absolute fee (in token units) charged on every transfer.
 uint256 public baseFeeAmount;
-
-/// @notice percentage fee to be applied on every transfer.
-uint256 public transferfee
 
 /// @notice Maximum acquiring fee percentage an acquirer may configure.
 uint256 public maxAcquiringFee;
@@ -563,7 +559,6 @@ uint256 public acquiringPrice;
 **Notes:**
 
 - `baseFeeAmount` provides a floor ensuring every transaction covers at minimum the cost of on-chain execution. Administrators SHOULD set this to reflect prevailing gas costs.
-- `transferfee` is how the payment processor colects revenue on-chain
 - `maxAcquiringFee` is a ceiling applied at acquirer registration. Acquirers MAY set their fee anywhere between zero and this ceiling.
 - `balances` uses a two-level mapping (`token → participant → amount`) to support multiple token types.
 - `usedHashes` stores the EIP-712 digest of each processed Binding Signature. Once recorded, any subsequent submission presenting the same hash MUST revert.
@@ -627,12 +622,11 @@ event CommissionGenerated(
 
 ### 12.1 Overview
 
-Every payment is subject to three potentially applicable fee components:
+Every payment is subject to two potentially applicable fee components:
 
 | Fee Component | Type | Applicability |
 | ------------- | ---- | ------------- |
-| Base Fee (`baseFeeAmount`) | Absolute, in token units | The absolute amount provides a way for the payment processors to protec themssef against submismission of trnasactions that do not cover pay enough comission to cover the gas. |
-|transferfee|Percentage|Applied on top of the `baseFeeAmount`, this is how the payment processor collect revenues. |
+| Base Fee (`baseFeeAmount`) | Absolute, in token units | Applied to every transfer unconditionally. |
 | Acquiring Fee | Percentage of the principal, as set by the acquirer | Applied only when the payment includes a non-zero Acquirer ID. |
 
 When no acquirer is involved, the caller MUST pass the **Zero-UUID** (`0x00000000000000000000000000000000`) as the `acquirerId`. The Zero-UUID suppresses the Acquiring Fee component entirely without reverting.
@@ -942,7 +936,7 @@ Communication between Merchant Servers and the core-checkout-engine MUST be prot
 
 ### 18.7 Administrative Privilege Boundaries
 
-The Administrator MUST be able to set `baseFeeAmount`,`transferfee`, `maxAcquiringFee`, `acquiringPrice`, and the fee recipient address.
+The Administrator MUST be able to set `baseFeeAmount`, `maxAcquiringFee`, `acquiringPrice`, and the fee recipient address.
 
 The Administrator MUST NOT be able to:
 
@@ -1000,8 +994,6 @@ The following companion specifications are planned and will reference this docum
 **Acquirer Incentive Structures** — Further specification of fee tier and pricing models available to Acquirers.
 
 **`ref` Field Evolution** — The `ref` field currently concatenates two values (Order Reference and Acquirer ID) that serve distinct and non-dependent purposes. A future version will separate these into independent fields.
-
-**Token-Aware Fee Calculation** — The current `calculateFees` and `breakdownTransferAmount` functions on the Settlement Contract apply the base fee as an absolute amount regardless of which token is being transferred. This was appropriate when the system was designed for a single stablecoin denomination. Now that the Settlement Contract supports multiple tokens with potentially different unit scales and exchange rates, fee amounts should be expressed relative to the token being transferred. A future MAJOR version of this specification will add a `token` parameter to both functions, enabling per-token fee schedules. Processor deployments targeting multi-token environments should account for this limitation in their current fee configuration.
 
 ---
 

@@ -115,7 +115,7 @@ async function buildSignedMessage(signer, type, payload) {
 }
 ```
 
-> **Note:** The exact EIP-712 type definition for gateway messages is specified in the [formal specification, Section 5.2](../specifications/ssf-spec-002.md#52-message-envelope). Verify the domain parameters with the Basic Data Service before signing.
+> **Note:** The exact EIP-712 type definition for gateway messages is specified in the [formal specification, Section 5.2](../specifications/ssf-spec-004.md#52-message-envelope). Verify the domain parameters with the Basic Data Service before signing.
 
 ---
 
@@ -207,4 +207,4 @@ async function reconnect() {
 - [Message Authentication](../core-concepts/message-authentication.md)
 - [Submit a Payment](./submit-a-payment.md)
 - [Subscribe to Updates](./subscribe-to-updates.md)
-- [Formal Specification, Sections 4–5](../specifications/ssf-spec-002.md)
+- [Formal Specification, Sections 4–5](../specifications/ssf-spec-004.md)

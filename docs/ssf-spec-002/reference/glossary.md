@@ -29,5 +29,5 @@ For the SSF-SPEC-001 glossary, see the [SSF-SPEC-001 Glossary](../../ssf-spec-00
 
 ## Related Documents
 
-- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-002.md)
+- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-004.md)
 - [SSF-SPEC-001 Glossary](../../ssf-spec-001/reference/glossary.md)

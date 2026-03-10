@@ -1,6 +1,6 @@
 # Message Type Index
 
-Complete reference for all message types defined in SSF-SPEC-004. For full field definitions, see the [formal specification](../specifications/ssf-spec-002.md).
+Complete reference for all message types defined in SSF-SPEC-004. For full field definitions, see the [formal specification](../specifications/ssf-spec-004.md).
 
 ---
 
@@ -82,4 +82,4 @@ For the full error code list, see [Error Codes](./error-codes.md).
 
 - [Error Codes](./error-codes.md)
 - [Glossary](./glossary.md)
-- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-002.md)
+- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-004.md)

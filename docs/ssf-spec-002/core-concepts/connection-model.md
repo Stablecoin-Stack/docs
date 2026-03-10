@@ -65,5 +65,5 @@ Wallet clients SHOULD implement reconnection logic with appropriate backoff, par
 
 - [Message Authentication](./message-authentication.md)
 - [Subscription Model](./subscription-model.md)
-- [Formal Specification, Section 4](../specifications/ssf-spec-002.md#4-transport-and-connection-model)
+- [Formal Specification, Section 4](../specifications/ssf-spec-004.md#4-transport-and-connection-model)
 - [Guide: Connect and Authenticate](../guides/connect-and-authenticate.md)
