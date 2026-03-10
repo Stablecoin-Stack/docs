@@ -6,7 +6,7 @@ cp -r ../stablecoin-stack-spec/ssf-spec-* docs/
 #cp -r ../stablecoin-stack-spec/impl docs/
 npm run build
 echo "specifications.stablecoinstack.org" >> build/CNAME 
-rm -rf build /tmp/ssf-specs-site-build
+rm -rf /tmp/ssf-specs-site-build/*
 cp -r build /tmp/ssf-specs-site-build
 git add .
 git commit -m "--"
