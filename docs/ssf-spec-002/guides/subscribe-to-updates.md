@@ -138,5 +138,5 @@ To ensure you receive the settlement notification for a payment you are submitti
 
 - [Subscription Model](../core-concepts/subscription-model.md)
 - [Submit a Payment](./submit-a-payment.md)
-- [Formal Specification, Section 9](../specifications/ssf-spec-004.md#9-subscription-operations)
+- [Formal Specification, Section 9](../specifications/ssf-spec-002.md#9-subscription-operations)
 - [Message Type Index](../reference/message-type-index.md)

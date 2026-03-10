@@ -24,11 +24,11 @@ The wallet-gateway provides five categories of service to connected wallet clien
 
 ## Who This Is For
 
-**Wallet developers** building a conformant client application should start here, then read [Connection Model](../core-concepts/connection-model.md) and [Message Authentication](../core-concepts/message-authentication.md) to understand the transport and security model, then follow the [guides](../guides/) for step-by-step implementation. The [formal specification](../specifications/ssf-spec-004.md) is the normative reference for all interface details.
+**Wallet developers** building a conformant client application should start here, then read [Connection Model](../core-concepts/connection-model.md) and [Message Authentication](../core-concepts/message-authentication.md) to understand the transport and security model, then follow the [guides](../guides/) for step-by-step implementation. The [formal specification](../specifications/ssf-spec-002.md) is the normative reference for all interface details.
 
 **Processor operators** implementing or deploying a wallet-gateway instance should read the formal specification in full, paying particular attention to Sections 4 (transport and connection model), 5 (authentication), and 15 (conformance requirements).
 
-**Auditors** should go directly to the [formal specification](../specifications/ssf-spec-004.md), Sections 5 and 13.
+**Auditors** should go directly to the [formal specification](../specifications/ssf-spec-002.md), Sections 5 and 13.
 
 ---
 
@@ -45,5 +45,5 @@ All data structures referenced here — `TransferRequest`, `BuyAcquiringPackRequ
 - [Connection Model](../core-concepts/connection-model.md)
 - [Message Authentication](../core-concepts/message-authentication.md)
 - [Subscription Model](../core-concepts/subscription-model.md)
-- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-004.md)
+- [Formal Specification — SSF-SPEC-004](../specifications/ssf-spec-002.md)
 - [SSF-SPEC-001 — The Stablecoin Stack](../../ssf-spec-001/specifications/ssf-spec-001.md)
