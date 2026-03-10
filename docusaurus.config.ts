@@ -94,32 +94,32 @@ const config: Config = {
       },
       style: 'dark',
       links: [
-        {
-          title: 'Documentation',
-          items: [
-            { label: 'Introduction', to: '/introduction' },
-            { label: 'Architecture', to: '/impl/architecture-overview' },
-            { label: 'Checkout & Wallet', to: '/impl/checkout-platform' },
-            { label: 'Security Model', to: '/impl/security-model' },
-          ],
-        },
-        {
-          title: 'Developers',
-          items: [
-            { label: 'SDK & Integration', to: '/impl/sdk-integration-guide' },
-            { label: 'Token Standards', to: '/impl/token-standards-support' },
-            { label: 'Deployment Guide', to: '/impl/deployment-guide' },
-            { label: 'GitHub', href: 'https://github.com/stablecoin-stack' },
-          ],
-        },
-        {
-          title: 'Foundation',
-          items: [
-            { label: 'Vision & Principles', to: '/vision-principles' },
-            { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
-            { label: 'Roadmap', to: '/roadmap' },
-          ],
-        },
+        // {
+        //   title: 'Documentation',
+        //   items: [
+        //     { label: 'Introduction', to: '/introduction' },
+        //     { label: 'Architecture', to: '/impl/architecture-overview' },
+        //     { label: 'Checkout & Wallet', to: '/impl/checkout-platform' },
+        //     { label: 'Security Model', to: '/impl/security-model' },
+        //   ],
+        // },
+        // {
+        //   title: 'Developers',
+        //   items: [
+        //     { label: 'SDK & Integration', to: '/impl/sdk-integration-guide' },
+        //     { label: 'Token Standards', to: '/impl/token-standards-support' },
+        //     { label: 'Deployment Guide', to: '/impl/deployment-guide' },
+        //     { label: 'GitHub', href: 'https://github.com/stablecoin-stack' },
+        //   ],
+        // },
+        // {
+        //   title: 'Foundation',
+        //   items: [
+        //     { label: 'Vision & Principles', to: '/vision-principles' },
+        //     { label: 'Governance', to: 'https://stablecoinstack.org/governance-and-community' },
+        //     { label: 'Roadmap', to: '/roadmap' },
+        //   ],
+        // },
         {
           title: 'Community',
           items: [

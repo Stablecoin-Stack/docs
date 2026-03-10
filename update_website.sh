@@ -1,3 +1,4 @@
+cd /home/blackshark/data/development/stablecoin-stack/foundation/stablecoin-stack-spec-website || exit 1
 git checkout main
 rm -rf docs/*
 rm -rf build

@@ -995,6 +995,8 @@ The following companion specifications are planned and will reference this docum
 
 **`ref` Field Evolution** — The `ref` field currently concatenates two values (Order Reference and Acquirer ID) that serve distinct and non-dependent purposes. A future version will separate these into independent fields.
 
+**Token-Aware Fee Calculation** — The current `calculateFees` and `breakdownTransferAmount` functions on the Settlement Contract apply the base fee as an absolute amount regardless of which token is being transferred. This was appropriate when the system was designed for a single stablecoin denomination. Now that the Settlement Contract supports multiple tokens with potentially different unit scales and exchange rates, fee amounts should be expressed relative to the token being transferred. A future MAJOR version of this specification will add a `token` parameter to both functions, enabling per-token fee schedules. Processor deployments targeting multi-token environments should account for this limitation in their current fee configuration.
+
 ---
 
 ## 21. Versioning
