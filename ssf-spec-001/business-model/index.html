@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ssf-spec-001/business-model/business-model" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Business Model | Stablecoin Stack</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://specifications.stablecoinstack.org/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://specifications.stablecoinstack.org/img/social-card.png"><meta data-rh="true" property="og:url" content="https://specifications.stablecoinstack.org/ssf-spec-001/business-model/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Business Model | Stablecoin Stack"><meta data-rh="true" name="description" content="| Field | Value |"><meta data-rh="true" property="og:description" content="| Field | Value |"><link data-rh="true" rel="icon" href="/img/icon-blue-bg.png"><link data-rh="true" rel="canonical" href="https://specifications.stablecoinstack.org/ssf-spec-001/business-model/"><link data-rh="true" rel="alternate" href="https://specifications.stablecoinstack.org/ssf-spec-001/business-model/" hreflang="en"><link data-rh="true" rel="alternate" href="https://specifications.stablecoinstack.org/ssf-spec-001/business-model/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Business Model","item":"https://specifications.stablecoinstack.org/ssf-spec-002/business-model"},{"@type":"ListItem","position":2,"name":"Business Model","item":"https://specifications.stablecoinstack.org/ssf-spec-001/business-model/"}]}</script><link rel="stylesheet" href="/assets/css/styles.d605ae5e.css">
+<script src="/assets/js/runtime~main.ea3b89f4.js" defer="defer"></script>
+<script src="/assets/js/main.f0cc6380.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo-white-bg-512.png"><link rel="preload" as="image" href="/img/icon-blue-bg.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-white-bg-512.png" alt="Stablecoin Stack Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-white-bg-512.png" alt="Stablecoin Stack Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Stablecoin Stack</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ssf-spec-001/overview">Docs</a><a href="https://stablecoinstack.org/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Home<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://stablecoinstack.org/donate" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Donate<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/Stablecoin-Stack/specs/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ssf-spec-001/overview"><span title="ssf-01" class="categoryLinkLabel_W154">ssf-01</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001/overview"><span title="Overview" class="categoryLinkLabel_W154">Overview</span></a><button aria-label="Expand sidebar category &#x27;Overview&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001/core-concepts"><span title="Core Concepts" class="categoryLinkLabel_W154">Core Concepts</span></a><button aria-label="Expand sidebar category &#x27;Core Concepts&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001/reference"><span title="Reference" class="categoryLinkLabel_W154">Reference</span></a><button aria-label="Expand sidebar category &#x27;Reference&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001/guides"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a><button aria-label="Expand sidebar category &#x27;Guides&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/ssf-spec-002/business-model"><span title="Business Model" class="categoryLinkLabel_W154">Business Model</span></a><button aria-label="Collapse sidebar category &#x27;Business Model&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ssf-spec-001/business-model/"><span title="Business Model" class="linkLabel_WmDU">Business Model</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001/governance"><span title="Governance" class="categoryLinkLabel_W154">Governance</span></a><button aria-label="Expand sidebar category &#x27;Governance&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ssf-spec-001"><span title="Formal Specification" class="categoryLinkLabel_W154">Formal Specification</span></a><button aria-label="Expand sidebar category &#x27;Formal Specification&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ssf-spec-002/overview"><span title="ssf-02" class="categoryLinkLabel_W154">ssf-02</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">ssf-01</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/ssf-spec-002/business-model"><span>Business Model</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Business Model</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Business Model</h1></header>
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td><strong>Document ID</strong></td><td>SSF-SPEC-001-L7</td></tr><tr><td><strong>Title</strong></td><td>Business Models for the Stablecoin Stack</td></tr><tr><td><strong>Layer</strong></td><td>7 — Business Models</td></tr><tr><td><strong>Version</strong></td><td>1.0.0</td></tr><tr><td><strong>Status</strong></td><td>Draft</td></tr><tr><td><strong>Date</strong></td><td>2026-03-12</td></tr><tr><td><strong>Parent Specification</strong></td><td>SSF-SPEC-001 v1.0.0</td></tr><tr><td><strong>Author(s)</strong></td><td>Adalton Reis <a href="mailto:reis@stablecoinstack.org" target="_blank" rel="noopener noreferrer" class="">reis@stablecoinstack.org</a></td></tr><tr><td><strong>Reviewers</strong></td><td>—</td></tr><tr><td><strong>Organization</strong></td><td>Stablecoin Stack Foundation</td></tr><tr><td><strong>Contact</strong></td><td><a href="mailto:spec@stablecoinstack.org" target="_blank" rel="noopener noreferrer" class="">specs@stablecoinstack.org</a></td></tr><tr><td><strong>Public Address</strong></td><td><code>0x0000000000000000000000000000000000000000</code></td></tr><tr><td><strong>License</strong></td><td>Apache License 2.0</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="table-of-contents">Table of Contents<a href="#table-of-contents" class="hash-link" aria-label="Direct link to Table of Contents" title="Direct link to Table of Contents" translate="no">​</a></h2>
+<ol>
+<li class=""><a href="#1-purpose-of-this-document" class="">Purpose of This Document</a></li>
+<li class=""><a href="#2-context-what-the-stablecoin-stack-makes-possible" class="">Context: What the Stablecoin Stack Makes Possible</a>
+<ul>
+<li class="">2.1 <a href="#21-the-problem-being-solved" class="">The Problem Being Solved</a></li>
+<li class="">2.2 <a href="#22-what-the-stack-provides-out-of-the-box" class="">What the Stack Provides Out of the Box</a></li>
+<li class="">2.3 <a href="#23-structural-advantages-of-the-payment-rails" class="">Structural Advantages of the Payment Rails</a></li>
+</ul>
+</li>
+<li class=""><a href="#3-roles-and-responsibilities-in-the-commercial-ecosystem" class="">Roles and Responsibilities in the Commercial Ecosystem</a>
+<ul>
+<li class="">3.1 <a href="#31-the-payment-processor" class="">The Payment Processor</a></li>
+<li class="">3.2 <a href="#32-the-acquirer" class="">The Acquirer</a></li>
+<li class="">3.3 <a href="#33-combined-roles" class="">Combined Roles</a></li>
+</ul>
+</li>
+<li class=""><a href="#4-revenue-primitives" class="">Revenue Primitives</a>
+<ul>
+<li class="">4.1 <a href="#41-transaction-fees-on-chain" class="">Transaction Fees (On-Chain)</a></li>
+<li class="">4.2 <a href="#42-subscription-fees-fiat" class="">Subscription Fees (Fiat)</a></li>
+<li class="">4.3 <a href="#43-acquirer-commission" class="">Acquirer Commission</a></li>
+<li class="">4.4 <a href="#44-custody-and-conversion-spread" class="">Custody and Conversion Spread</a></li>
+<li class="">4.5 <a href="#45-float-income" class="">Float Income</a></li>
+</ul>
+</li>
+<li class=""><a href="#5-custody-spectrum-a-critical-commercial-dimension" class="">Custody Spectrum: A Critical Commercial Dimension</a>
+<ul>
+<li class="">5.1 <a href="#51-non-custodial-model" class="">Non-Custodial Model</a></li>
+<li class="">5.2 <a href="#52-custodial-model" class="">Custodial Model</a></li>
+<li class="">5.3 <a href="#53-hybrid-model" class="">Hybrid Model</a></li>
+</ul>
+</li>
+<li class=""><a href="#6-business-models-for-payment-processors" class="">Business Models for Payment Processors</a>
+<ul>
+<li class="">6.1 <a href="#61-model-pp-1-transaction-fee-processor" class="">Model PP-1: Transaction-Fee Processor</a></li>
+<li class="">6.2 <a href="#62-model-pp-2-subscription-based-processor" class="">Model PP-2: Subscription-Based Processor</a></li>
+<li class="">6.3 <a href="#63-model-pp-3-blended-fee-processor" class="">Model PP-3: Blended Fee Processor</a></li>
+<li class="">6.4 <a href="#64-model-pp-4-custodial-full-service-processor-fiat-out" class="">Model PP-4: Custodial Full-Service Processor (Fiat-Out)</a></li>
+<li class="">6.5 <a href="#65-model-pp-5-white-label-processor" class="">Model PP-5: White-Label Processor</a></li>
+<li class="">6.6 <a href="#66-model-pp-6-saas-infrastructure-provider" class="">Model PP-6: SaaS Infrastructure Provider</a></li>
+<li class="">6.7 <a href="#67-model-pp-7-embedded-finance-processor" class="">Model PP-7: Embedded Finance Processor</a></li>
+<li class="">6.8 <a href="#68-model-pp-8-float-yield-processor-zero-fee" class="">Model PP-8: Float-Yield Processor (Zero-Fee)</a></li>
+<li class="">6.9 <a href="#69-model-pp-9-vertical-specific-processor" class="">Model PP-9: Vertical-Specific Processor</a></li>
+</ul>
+</li>
+<li class=""><a href="#7-business-models-for-acquirers" class="">Business Models for Acquirers</a>
+<ul>
+<li class="">7.1 <a href="#71-model-aq-1-classic-distribution-acquirer" class="">Model AQ-1: Classic Distribution Acquirer</a></li>
+<li class="">7.2 <a href="#72-model-aq-2-wallet-as-acquirer" class="">Model AQ-2: Wallet-as-Acquirer</a></li>
+<li class="">7.3 <a href="#73-model-aq-3-point-of-sale-hardware-acquirer" class="">Model AQ-3: Point-of-Sale Hardware Acquirer</a></li>
+<li class="">7.4 <a href="#74-model-aq-4-regional-agent-network" class="">Model AQ-4: Regional Agent Network</a></li>
+<li class="">7.5 <a href="#75-model-aq-5-platform-acquirer-marketplace-or-app-store" class="">Model AQ-5: Platform Acquirer (Marketplace or App Store)</a></li>
+<li class="">7.6 <a href="#76-model-aq-6-decentralised-autonomous-organisation-dao-acquirer" class="">Model AQ-6: Decentralised Autonomous Organisation (DAO) Acquirer</a></li>
+</ul>
+</li>
+<li class=""><a href="#8-combined-models-processor-and-acquirer-in-conjunction" class="">Combined Models: Processor and Acquirer in Conjunction</a>
+<ul>
+<li class="">8.1 <a href="#81-model-c-1-vertically-integrated-full-stack-operator" class="">Model C-1: Vertically Integrated Full-Stack Operator</a></li>
+<li class="">8.2 <a href="#82-model-c-2-cooperative-payment-network" class="">Model C-2: Cooperative Payment Network</a></li>
+<li class="">8.3 <a href="#83-model-c-3-franchise-payment-network" class="">Model C-3: Franchise Payment Network</a></li>
+</ul>
+</li>
+<li class=""><a href="#9-unorthodox-and-emerging-models" class="">Unorthodox and Emerging Models</a>
+<ul>
+<li class="">9.1 <a href="#91-model-u-1-merchant-owned-processor-collective" class="">Model U-1: Merchant-Owned Processor Collective</a></li>
+<li class="">9.2 <a href="#92-model-u-2-pay-as-you-grow-revenue-share-onboarding" class="">Model U-2: Pay-as-You-Grow (Revenue-Share Onboarding)</a></li>
+<li class="">9.3 <a href="#93-model-u-3-refund-as-a-service" class="">Model U-3: Refund-as-a-Service</a></li>
+<li class="">9.4 <a href="#94-model-u-4-payment-data-marketplace" class="">Model U-4: Payment Data Marketplace</a></li>
+<li class="">9.5 <a href="#95-model-u-5-treasury-as-a-service-processor" class="">Model U-5: Treasury-as-a-Service Processor</a></li>
+<li class="">9.6 <a href="#96-model-u-6-on-chain-dao-processor" class="">Model U-6: On-Chain DAO Processor</a></li>
+<li class="">9.7 <a href="#97-model-u-7-loyalty-and-rewards-infrastructure" class="">Model U-7: Loyalty and Rewards Infrastructure</a></li>
+<li class="">9.8 <a href="#98-model-u-8-programmable-escrow-service" class="">Model U-8: Programmable Escrow Service</a></li>
+</ul>
+</li>
+<li class=""><a href="#10-comparative-summary" class="">Comparative Summary</a></li>
+<li class=""><a href="#11-guidance-for-new-entrants" class="">Guidance for New Entrants</a></li>
+<li class=""><a href="#12-license" class="">License</a></li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-purpose-of-this-document">1. Purpose of This Document<a href="#1-purpose-of-this-document" class="hash-link" aria-label="Direct link to 1. Purpose of This Document" title="Direct link to 1. Purpose of This Document" translate="no">​</a></h2>
+<p>This document describes the business layer of the Stablecoin Stack ecosystem. It is not a normative technical specification. It does not define protocols, data structures, or conformance requirements. Its purpose is different, and deliberately so.</p>
+<p>The Stablecoin Stack Foundation publishes open-source specifications and reference implementations because we believe that open standards lead to better outcomes for merchants, payers, and the broader payments industry. However, open standards only create value when businesses adopt and build upon them. This document exists to make that path concrete.</p>
+<p>Specifically, this document addresses:</p>
+<ul>
+<li class=""><strong>How companies can generate sustainable revenue</strong> by deploying and operating the Stablecoin Stack as a payment processor.</li>
+<li class=""><strong>How acquirers can build distribution businesses</strong> on top of an existing Stablecoin Stack deployment.</li>
+<li class=""><strong>What new business models become possible</strong> with this payment architecture that were not previously viable or did not exist.</li>
+</ul>
+<p>The intended reader is a businessperson, founder, or executive evaluating whether to build a commercial venture on the Stablecoin Stack. Technical depth is kept to the minimum necessary to understand why certain commercial structures are available. For full technical detail, refer to SSF-SPEC-001.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-context-what-the-stablecoin-stack-makes-possible">2. Context: What the Stablecoin Stack Makes Possible<a href="#2-context-what-the-stablecoin-stack-makes-possible" class="hash-link" aria-label="Direct link to 2. Context: What the Stablecoin Stack Makes Possible" title="Direct link to 2. Context: What the Stablecoin Stack Makes Possible" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-the-problem-being-solved">2.1 The Problem Being Solved<a href="#21-the-problem-being-solved" class="hash-link" aria-label="Direct link to 2.1 The Problem Being Solved" title="Direct link to 2.1 The Problem Being Solved" translate="no">​</a></h3>
+<p>Accepting digital payments today is, for most businesses, deceptively expensive and slow. A merchant accepting a card payment typically waits until the following business day — or longer — to receive funds. The payment processor, the card network, and the acquiring bank each take a cut. The merchant bears the cost of disputes and chargebacks, which require administrative overhead and can be exploited fraudulently. Cross-border payments compound these issues with additional fees and settlement delays measured in days.</p>
+<p>Digital stablecoin payments can, in principle, resolve all of these issues: settlement is near-instant, fees are low, and payments are cryptographically authorised by the payer and therefore irreversible by design. However, the practical barriers to adoption have been significant. Merchants cannot be expected to understand the underlying technology. Payers should not need to learn new concepts to make a purchase. Developers building payment services should not need to construct the entire technical stack from scratch.</p>
+<p>The Stablecoin Stack addresses all three barriers simultaneously.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-what-the-stack-provides-out-of-the-box">2.2 What the Stack Provides Out of the Box<a href="#22-what-the-stack-provides-out-of-the-box" class="hash-link" aria-label="Direct link to 2.2 What the Stack Provides Out of the Box" title="Direct link to 2.2 What the Stack Provides Out of the Box" translate="no">​</a></h3>
+<p>A company deploying the Stablecoin Stack receives a complete, production-ready payment infrastructure. This includes:</p>
+<ul>
+<li class="">A <strong>Settlement Contract</strong> — the on-chain component that verifies payment authorisations and transfers funds atomically. It cannot be manipulated by the processor; its behaviour is determined entirely by its published code and the signatures provided by the payer.</li>
+<li class="">A <strong>Checkout Engine</strong> — the merchant-facing backend that handles session creation, charge management, reconciliation, and webhook delivery. Merchants interact with it through a standard API; they do not need to understand anything about the underlying payment rails.</li>
+<li class="">A <strong>Broadcast Layer</strong> — the infrastructure that receives signed payment payloads from payer wallets, validates them, and submits them to the network. It also absorbs the transaction costs that would otherwise fall on the payer, recovering them through the processing fee.</li>
+<li class="">A <strong>Client Wallet</strong> — the payer-facing interface. The payer opens the wallet, sees the payment request, and confirms. The wallet handles all signature construction and communication with the processor. From the payer&#x27;s perspective, this is no different from any other digital payment method.</li>
+<li class="">A <strong>Merchant Dashboard</strong> — a self-service interface for merchants to manage their account, monitor transactions in real time, and review reconciliation reports.</li>
+<li class="">A <strong>Basic Data Service</strong> — a public directory of supported tokens and registered acquirers, usable by wallets to present choices to payers.</li>
+</ul>
+<p>The company deploying this infrastructure — the <strong>Payment Processor</strong> — does not need to design or build any of it. The Foundation has done that work. What the company brings is operational capacity, merchant relationships, customer support, regulatory compliance, and commercial strategy.</p>
+<p>This is the same model that has allowed dozens of companies to build payment businesses on top of card network rails, without designing the card network themselves. The difference is that the Stablecoin Stack is open-source and free to deploy.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-structural-advantages-of-the-payment-rails">2.3 Structural Advantages of the Payment Rails<a href="#23-structural-advantages-of-the-payment-rails" class="hash-link" aria-label="Direct link to 2.3 Structural Advantages of the Payment Rails" title="Direct link to 2.3 Structural Advantages of the Payment Rails" translate="no">​</a></h3>
+<p>Understanding the commercial opportunity requires understanding the structural properties of the underlying payment mechanism. Several of these properties are genuinely new — they were not available on traditional payment rails — and they create commercial possibilities that have no prior analogue.</p>
+<p><strong>Instant, final settlement.</strong> Payment finality is determined by the network on which the Settlement Contract is deployed. Networks such as Polygon achieve finality in approximately five seconds. Others may take longer, but even the slower networks settle in minutes, not days. This means a merchant receives their funds in the same session as the payment — not the next business day. The processor never holds the merchant&#x27;s money overnight in the ordinary course of operations.</p>
+<p><strong>Irreversibility by design.</strong> A payment authorised by the payer&#x27;s cryptographic signature cannot be reversed by the processor, the acquirer, or the payer. There is no equivalent of a chargeback initiated by the card issuer. The implications for merchants are significant: a category of fraud that costs the industry billions of dollars annually simply does not exist in this model. For processors, this means no chargeback management overhead, no reserve requirements for dispute exposure, and no liability for fraudulent transactions that slipped through authorisation.</p>
+<p><strong>No custodial requirement on the settlement path.</strong> In the non-custodial configuration of the Stablecoin Stack, funds move directly from the payer&#x27;s wallet to the merchant&#x27;s wallet through the Settlement Contract, without passing through any account held by the processor. The processor is a relay, not a custodian. This is structurally different from every traditional payment rail, where the processor and acquiring bank are necessarily custodial participants in the flow of funds.</p>
+<p><strong>Gas abstraction.</strong> The payer does not need to hold any asset other than the stablecoin they wish to spend. The processor&#x27;s Relayer pays the network transaction cost and recovers it through the processing fee. This makes the payment experience indistinguishable from any other mobile payment method from the payer&#x27;s perspective.</p>
+<p><strong>Open acquirer model.</strong> The Settlement Contract has a built-in acquirer fee mechanism. Any third party can register as an acquirer, distribute the payment service, and earn a share of the processing fee on every transaction they refer — automatically, on-chain, without any trust relationship with the processor. This enables distribution networks that were previously impossible to operate without significant bilateral coordination.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-roles-and-responsibilities-in-the-commercial-ecosystem">3. Roles and Responsibilities in the Commercial Ecosystem<a href="#3-roles-and-responsibilities-in-the-commercial-ecosystem" class="hash-link" aria-label="Direct link to 3. Roles and Responsibilities in the Commercial Ecosystem" title="Direct link to 3. Roles and Responsibilities in the Commercial Ecosystem" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-the-payment-processor">3.1 The Payment Processor<a href="#31-the-payment-processor" class="hash-link" aria-label="Direct link to 3.1 The Payment Processor" title="Direct link to 3.1 The Payment Processor" translate="no">​</a></h3>
+<p>The Payment Processor is the company that deploys and operates a conformant instance of the Stablecoin Stack. Its responsibilities include:</p>
+<ul>
+<li class="">Operating and maintaining the technical infrastructure (Checkout Engine, Broadcast Layer, Relayer, Settlement Contract);</li>
+<li class="">Onboarding and supporting merchants;</li>
+<li class="">Funding the Relayer account to cover network transaction costs;</li>
+<li class="">Setting the base fee and related parameters on the Settlement Contract;</li>
+<li class="">Ensuring regulatory compliance in the jurisdictions where it operates;</li>
+<li class="">Managing the conversion between digital assets and fiat currency, if the processor offers such services.</li>
+</ul>
+<p>The processor is the primary commercial entity. All revenue models described in this document that involve a processor are available to any company that deploys a conformant stack.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-the-acquirer">3.2 The Acquirer<a href="#32-the-acquirer" class="hash-link" aria-label="Direct link to 3.2 The Acquirer" title="Direct link to 3.2 The Acquirer" translate="no">​</a></h3>
+<p>The Acquirer is a third party registered on the Settlement Contract who distributes the payment service and earns a share of the processing fee on payments they refer. Acquirers do not operate the payment infrastructure. They bring merchants, payers, or distribution channels, and the Settlement Contract automatically credits their earning wallet on every qualifying transaction.</p>
+<p>Acquirer registration requires a one-time on-chain registration payment to the processor. Once registered, the acquirer&#x27;s fee percentage is immutably recorded on-chain — the processor cannot unilaterally change it without the acquirer&#x27;s consent. This provides commercial certainty that is unusual in distribution agreements.</p>
+<p>The acquirer role is flexible. An acquirer could be a software company that builds a point-of-sale application, a bank that distributes the payment method to its clients, a marketplace that embeds payment acceptance, or a community of individuals organised as a cooperative. The on-chain mechanism does not distinguish between these cases.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-combined-roles">3.3 Combined Roles<a href="#33-combined-roles" class="hash-link" aria-label="Direct link to 3.3 Combined Roles" title="Direct link to 3.3 Combined Roles" translate="no">​</a></h3>
+<p>A single company may operate as both processor and acquirer simultaneously — for example, a company that deploys its own stack and also registers as an acquirer on that same stack to earn the full combined fee on transactions it originates directly. This is a common configuration for vertically integrated operators, and it is fully supported by the architecture.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-revenue-primitives">4. Revenue Primitives<a href="#4-revenue-primitives" class="hash-link" aria-label="Direct link to 4. Revenue Primitives" title="Direct link to 4. Revenue Primitives" translate="no">​</a></h2>
+<p>Before describing specific business models, it is useful to enumerate the fundamental revenue mechanisms available in the ecosystem. Each model described in subsequent sections is a combination of one or more of these primitives.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-transaction-fees-on-chain">4.1 Transaction Fees (On-Chain)<a href="#41-transaction-fees-on-chain" class="hash-link" aria-label="Direct link to 4.1 Transaction Fees (On-Chain)" title="Direct link to 4.1 Transaction Fees (On-Chain)" translate="no">​</a></h3>
+<p>The Settlement Contract charges a <strong>base fee</strong> on every transaction. This fee is set by the processor and is collected automatically in the same atomic operation as the payment. It is denominated in the stablecoin being transacted, not in fiat. The processor receives it in their fee recipient wallet, from which it can be withdrawn at any time.</p>
+<p>The base fee can be structured as a flat absolute amount, as a percentage, or — through the <code>calculateFees</code> function — as a combination of both. There is no bilateral agreement with the merchant required; the fee is built into the payment amount signed by the payer.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-subscription-fees-fiat">4.2 Subscription Fees (Fiat)<a href="#42-subscription-fees-fiat" class="hash-link" aria-label="Direct link to 4.2 Subscription Fees (Fiat)" title="Direct link to 4.2 Subscription Fees (Fiat)" translate="no">​</a></h3>
+<p>A processor may charge merchants a recurring subscription fee in fiat currency for access to the service. This subscription can be tiered by volume, feature set, or support level. It is entirely independent of the on-chain fee mechanism and is managed through the processor&#x27;s standard billing infrastructure. Subscription revenue provides predictable cash flow that is decoupled from payment volume.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-acquirer-commission">4.3 Acquirer Commission<a href="#43-acquirer-commission" class="hash-link" aria-label="Direct link to 4.3 Acquirer Commission" title="Direct link to 4.3 Acquirer Commission" translate="no">​</a></h3>
+<p>A registered acquirer earns a percentage of the principal amount on every transaction that references their acquirer ID. This commission is set at registration and is automatically distributed by the Settlement Contract at the moment of settlement. The acquirer does not need to invoice the processor or wait for a remittance cycle; the funds are credited to their on-chain wallet in real time.</p>
+<p>A processor who also registers as an acquirer on their own stack collects both the base fee and the acquirer commission on self-originated transactions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="44-custody-and-conversion-spread">4.4 Custody and Conversion Spread<a href="#44-custody-and-conversion-spread" class="hash-link" aria-label="Direct link to 4.4 Custody and Conversion Spread" title="Direct link to 4.4 Custody and Conversion Spread" translate="no">​</a></h3>
+<p>In custodial configurations, the processor receives funds in stablecoin on behalf of the merchant and delivers fiat currency to the merchant&#x27;s bank account. The difference between the stablecoin value and the fiat amount delivered — after market conversion — represents a conversion spread. This spread can be taken explicitly as a declared fee or implicitly through the rate applied.</p>
+<p>This revenue primitive is only available to processors operating a custodial model. It does not exist in the non-custodial configuration, where funds flow directly to the merchant.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="45-float-income">4.5 Float Income<a href="#45-float-income" class="hash-link" aria-label="Direct link to 4.5 Float Income" title="Direct link to 4.5 Float Income" translate="no">​</a></h3>
+<p>In a custodial model, there is typically a period between when the processor receives the stablecoin and when the fiat is disbursed to the merchant. During that period, the processor holds a balance of stablecoins. Many stablecoins can be deposited in yield-bearing protocols that generate a return on the balance. This float income accrues to the processor and can be a meaningful revenue line at scale.</p>
+<p>Even in a non-custodial model, there may be float in the Relayer account used to fund network transaction costs. A processor who holds a large Relayer balance can deploy idle capital to generate yield.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-custody-spectrum-a-critical-commercial-dimension">5. Custody Spectrum: A Critical Commercial Dimension<a href="#5-custody-spectrum-a-critical-commercial-dimension" class="hash-link" aria-label="Direct link to 5. Custody Spectrum: A Critical Commercial Dimension" title="Direct link to 5. Custody Spectrum: A Critical Commercial Dimension" translate="no">​</a></h2>
+<p>The most important decision a payment processor makes — commercially and operationally — is where on the custody spectrum it chooses to operate. This decision affects revenue sources, regulatory exposure, operational complexity, and the value proposition to merchants. The Stablecoin Stack supports the full range.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-non-custodial-model">5.1 Non-Custodial Model<a href="#51-non-custodial-model" class="hash-link" aria-label="Direct link to 5.1 Non-Custodial Model" title="Direct link to 5.1 Non-Custodial Model" translate="no">​</a></h3>
+<p>In the non-custodial model, the Settlement Contract transfers funds directly from the payer&#x27;s wallet to the merchant&#x27;s wallet. The processor never holds the merchant&#x27;s funds. The processor&#x27;s Relayer pays the network transaction cost and is reimbursed through the base fee, but this is a cost recovery mechanism, not a custody arrangement.</p>
+<p>From the merchant&#x27;s perspective, this means settlement is instantaneous and direct. There is no counterparty risk on the processor for the principal amount. The merchant receives their funds — in stablecoin — in the same session as the payment.</p>
+<p>The commercial implication is that the processor&#x27;s revenue is limited to the base fee and any subscription charges. There is no opportunity for conversion spread or float income on the settlement flow. However, the operational and regulatory burden is substantially lower, because the processor is acting as a relay rather than a custodian.</p>
+<p>This model offers a genuinely new proposition to merchants: <strong>same-session settlement with no custodial intermediary</strong>. No traditional payment rail can offer this. Settlement on card networks takes at minimum one business day because the card issuer, processor, and acquiring bank are all custodial intermediaries in the flow. The non-custodial Stablecoin Stack processor settles in seconds.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-custodial-model">5.2 Custodial Model<a href="#52-custodial-model" class="hash-link" aria-label="Direct link to 5.2 Custodial Model" title="Direct link to 5.2 Custodial Model" translate="no">​</a></h3>
+<p>In the custodial model, the processor configures the Settlement Contract to deliver funds to a processor-controlled wallet rather than directly to the merchant. The processor then converts the stablecoin to fiat and remits to the merchant&#x27;s bank account on a scheduled cycle.</p>
+<p>This model closely mirrors the operational model of a traditional payment processor. The merchant sees a familiar experience — fiat settlement to their bank account, on a defined schedule. The merchant does not need to manage stablecoin wallets, understand conversion, or interact with the underlying technology in any way. This lowers the barrier to adoption for merchants who are not yet comfortable holding digital assets.</p>
+<p>The custodial model opens additional revenue streams (conversion spread, float income) but also introduces regulatory obligations related to holding client funds, which vary significantly by jurisdiction.</p>
+<p>Critically, the custodial model is also where <strong>dispute and refund management</strong> becomes commercially relevant. Since the processor holds the merchant&#x27;s funds before disbursement, the processor can implement a refund mechanism: accepting refund requests from merchants and reversing the fiat disbursement, rather than attempting to reverse the on-chain transaction (which is not possible). This dispute capability can itself be offered as a premium service.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="53-hybrid-model">5.3 Hybrid Model<a href="#53-hybrid-model" class="hash-link" aria-label="Direct link to 5.3 Hybrid Model" title="Direct link to 5.3 Hybrid Model" translate="no">​</a></h3>
+<p>A processor may offer both models simultaneously, allowing each merchant to choose. Enterprise merchants with treasury capabilities may prefer non-custodial settlement. SME merchants may prefer the familiarity of fiat settlement. The processor earns differently from each cohort but serves a broader market.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-business-models-for-payment-processors">6. Business Models for Payment Processors<a href="#6-business-models-for-payment-processors" class="hash-link" aria-label="Direct link to 6. Business Models for Payment Processors" title="Direct link to 6. Business Models for Payment Processors" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-model-pp-1-transaction-fee-processor">6.1 Model PP-1: Transaction-Fee Processor<a href="#61-model-pp-1-transaction-fee-processor" class="hash-link" aria-label="Direct link to 6.1 Model PP-1: Transaction-Fee Processor" title="Direct link to 6.1 Model PP-1: Transaction-Fee Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The most straightforward model. The processor charges a fee on every transaction, collected automatically through the Settlement Contract. There are no subscription fees and no fiat conversion services. Settlement is non-custodial: funds go directly to the merchant&#x27;s wallet.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">On-chain base fee per transaction (percentage, flat, or combination).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Simple, transparent pricing. Merchants pay only when they receive payments. No monthly commitments. Settlement is immediate and direct.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Low complexity. The processor funds and maintains the Relayer, operates the stack, and handles merchant support. No fiat infrastructure is required.</p>
+<p><strong>Suitable for</strong></p>
+<p>Early-stage processors establishing market presence. Processors targeting merchants already comfortable holding digital assets. Niche or developer-focused deployments.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>Revenue is entirely variable, which creates cash flow unpredictability. At low volumes, this model requires careful Relayer economics to ensure network cost recovery is consistent.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-model-pp-2-subscription-based-processor">6.2 Model PP-2: Subscription-Based Processor<a href="#62-model-pp-2-subscription-based-processor" class="hash-link" aria-label="Direct link to 6.2 Model PP-2: Subscription-Based Processor" title="Direct link to 6.2 Model PP-2: Subscription-Based Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor charges merchants a recurring monthly or annual fee in fiat currency for access to the payment service. On-chain fees are set at or near cost recovery only. The commercial relationship is B2B and predictable.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Monthly or annual subscription fee (fiat), tiered by volume or feature set.</li>
+<li class="">Minimal on-chain fee for Relayer cost recovery.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Predictable cost for merchants. Suitable for merchants with stable, forecastable payment volumes who prefer a fixed operating cost over variable per-transaction fees.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires standard SaaS billing infrastructure, customer success, and account management. The subscription pricing model rewards customer retention.</p>
+<p><strong>Suitable for</strong></p>
+<p>Processors targeting SME or enterprise merchants with predictable volumes. Processors who can articulate a broader product suite (dashboard, analytics, integrations) to justify the subscription.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>Acquiring new merchants is harder when upfront commitment is required. A free trial or volume-based entry tier is commonly used to reduce friction.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="63-model-pp-3-blended-fee-processor">6.3 Model PP-3: Blended Fee Processor<a href="#63-model-pp-3-blended-fee-processor" class="hash-link" aria-label="Direct link to 6.3 Model PP-3: Blended Fee Processor" title="Direct link to 6.3 Model PP-3: Blended Fee Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor combines a lower subscription fee with a reduced per-transaction fee. This is the most common commercial structure in mature payment processing businesses, because it aligns processor incentives with merchant growth while providing a revenue floor.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Monthly subscription fee (fiat).</li>
+<li class="">Per-transaction on-chain fee.</li>
+<li class="">Optional acquirer commission if the processor self-registers as an acquirer.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The processor benefits from both predictable base revenue and volume-correlated upside. Merchants benefit from lower per-transaction rates compared to a pure transaction-fee model.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires both subscription billing and on-chain fee management. Slightly more complex to price and communicate, but the dominant model in payment processing for good reason.</p>
+<p><strong>Suitable for</strong></p>
+<p>Most general-purpose payment processor deployments. Particularly effective for processors with diverse merchant segments.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="64-model-pp-4-custodial-full-service-processor-fiat-out">6.4 Model PP-4: Custodial Full-Service Processor (Fiat-Out)<a href="#64-model-pp-4-custodial-full-service-processor-fiat-out" class="hash-link" aria-label="Direct link to 6.4 Model PP-4: Custodial Full-Service Processor (Fiat-Out)" title="Direct link to 6.4 Model PP-4: Custodial Full-Service Processor (Fiat-Out)" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor accepts stablecoin payments on the merchant&#x27;s behalf, converts them to fiat, and disburses to the merchant&#x27;s bank account. The merchant interacts entirely in fiat — they price in fiat, invoice in fiat, and receive fiat. The stablecoin payment rails are invisible to them.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Per-transaction fee or subscription.</li>
+<li class="">Conversion spread (difference between stablecoin value and fiat disbursement amount).</li>
+<li class="">Float income during custody period.</li>
+<li class="">Optional premium for accelerated fiat disbursement (e.g., same-day settlement for an additional fee).</li>
+<li class="">Optional refund management service fee.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Zero operational change for the merchant. The merchant does not need to know or care about the underlying payment technology. The processor provides the same experience as a traditional payment processor, but with materially lower fees on their end and potentially better economics passed to the merchant.</p>
+<p>This model also eliminates the need for any dispute mechanism on the settlement path — since payments are irreversible, the processor absorbs no chargeback risk on the stablecoin leg. Any refund policy is managed entirely by the processor in their fiat disbursement layer.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Highest complexity. Requires fiat banking relationships, stablecoin-to-fiat conversion operations, regulatory compliance for holding client funds, and standard payment processor compliance obligations.</p>
+<p><strong>Suitable for</strong></p>
+<p>Processors targeting merchants with no appetite for digital asset management. Businesses entering the market with existing fiat payments experience. Processors in regulated markets who want to offer a compliant, familiar product.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model requires the most regulatory infrastructure. However, it also has the largest addressable merchant market, since it requires nothing from the merchant beyond a bank account.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="65-model-pp-5-white-label-processor">6.5 Model PP-5: White-Label Processor<a href="#65-model-pp-5-white-label-processor" class="hash-link" aria-label="Direct link to 6.5 Model PP-5: White-Label Processor" title="Direct link to 6.5 Model PP-5: White-Label Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor deploys the Stablecoin Stack as infrastructure and licenses it — white-labelled — to other companies who want to offer stablecoin payment acceptance under their own brand. The white-label client operates as the merchant-facing brand; the underlying processor provides the infrastructure.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Licence fee or revenue share from white-label clients.</li>
+<li class="">Infrastructure fee (per merchant onboarded, per transaction processed, or flat monthly).</li>
+<li class="">Optional: the white-label client may register as an acquirer on the underlying stack, with the processor earning a base fee on every transaction regardless.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Banks, fintech platforms, e-commerce platforms, and accounting software companies all have merchant relationships but may not want to build payment infrastructure. A white-label arrangement allows them to launch a stablecoin payment product rapidly, under their brand, without engineering investment.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires clear commercial agreements with white-label clients, multi-tenant infrastructure, and robust API and dashboard customisation capabilities. The processor operates in a B2B2B or B2B2C model.</p>
+<p><strong>Suitable for</strong></p>
+<p>Processors with strong technical infrastructure who prefer a wholesale distribution model over direct merchant relationships. Particularly valuable for processors who can serve multiple geographic markets through local white-label partners.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>Revenue per transaction is lower than direct models, but scale can be significantly higher if white-label clients have large merchant networks. Brand visibility is low, but commercial exposure is diversified.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="66-model-pp-6-saas-infrastructure-provider">6.6 Model PP-6: SaaS Infrastructure Provider<a href="#66-model-pp-6-saas-infrastructure-provider" class="hash-link" aria-label="Direct link to 6.6 Model PP-6: SaaS Infrastructure Provider" title="Direct link to 6.6 Model PP-6: SaaS Infrastructure Provider" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor does not operate a payment processing service for end-merchants at all. Instead, it sells managed, hosted infrastructure — a fully configured Stablecoin Stack deployment — to other companies who want to become payment processors themselves.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Monthly SaaS subscription for hosted stack access (Checkout Engine, Broadcast Layer, Relayer management).</li>
+<li class="">Usage-based billing (per API call, per transaction processed, per active merchant).</li>
+<li class="">Optional professional services for deployment and customisation.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The Foundation has made the Stablecoin Stack open-source, but operating it reliably requires engineering capability, infrastructure investment, and ongoing maintenance. Many companies willing to enter the payment processing market do not have this capability. A SaaS provider abstracts it entirely: the customer deploys a payment processor business in days, not months.</p>
+<p>This is the payments equivalent of a cloud hosting provider for traditional software. The SaaS provider operates the infrastructure; the customer operates the business.</p>
+<p><strong>Operational Profile</strong></p>
+<p>This model requires significant engineering investment in multi-tenancy, reliability, and developer experience. The SaaS provider&#x27;s customers are themselves payment processors, so uptime and compliance are critical.</p>
+<p><strong>Suitable for</strong></p>
+<p>Infrastructure-focused companies with deep Stablecoin Stack expertise. Companies already operating cloud or developer platform businesses who want to expand into payment infrastructure.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model is indifferent to payment volume at the application layer — revenue is derived from infrastructure usage, not from individual transactions. It scales with the number of processors on the platform rather than payment volume.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="67-model-pp-7-embedded-finance-processor">6.7 Model PP-7: Embedded Finance Processor<a href="#67-model-pp-7-embedded-finance-processor" class="hash-link" aria-label="Direct link to 6.7 Model PP-7: Embedded Finance Processor" title="Direct link to 6.7 Model PP-7: Embedded Finance Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor integrates payment acceptance capabilities directly into a host platform — an e-commerce platform, an accounting system, a business management suite — so that merchants on that platform can accept stablecoin payments without leaving the platform or acquiring a separate payment account.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Revenue share with the host platform on transaction fees.</li>
+<li class="">Direct subscription fee from merchants, shared with the platform.</li>
+<li class="">Platform referral fee for each merchant onboarded.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Merchants discover and adopt the payment capability within their existing workflow, with minimal friction. For the host platform, adding stablecoin payment acceptance creates a new revenue stream and adds product stickiness.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires deep integration work with the host platform&#x27;s API and UI. Commercial agreements with platform operators are the primary business development activity.</p>
+<p><strong>Suitable for</strong></p>
+<p>Processors with strong developer and partnership capabilities. A particularly effective first entry point into a market, since the host platform provides immediate merchant distribution.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="68-model-pp-8-float-yield-processor-zero-fee">6.8 Model PP-8: Float-Yield Processor (Zero-Fee)<a href="#68-model-pp-8-float-yield-processor-zero-fee" class="hash-link" aria-label="Direct link to 6.8 Model PP-8: Float-Yield Processor (Zero-Fee)" title="Direct link to 6.8 Model PP-8: Float-Yield Processor (Zero-Fee)" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>An unorthodox model in which the processor charges no transaction fee and no subscription fee. Revenue is generated entirely from deploying the stablecoins held in the Relayer and any custodial balances into yield-bearing instruments.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Yield on stablecoin balances (Relayer account, any custodial merchant balances during processing window).</li>
+<li class="">Potential premium services offered to merchants who generate consistently high float.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>A zero-fee payment processor is a compelling market differentiator. Merchants pay nothing directly. The processor&#x27;s incentive is to grow volume, since higher volume means larger float balances and higher yield.</p>
+<p>This model was not viable on traditional payment rails, because the intermediary structure of card networks requires fees to compensate each party in the settlement chain. It becomes viable here because there is no mandatory fee sharing with card networks, banks, or issuers. The processor captures all economics.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires careful treasury management and a reliable yield deployment strategy. The processor must be comfortable with the balance sheet risk of holding and deploying stablecoin assets. Regulatory treatment of yield operations varies by jurisdiction.</p>
+<p><strong>Suitable for</strong></p>
+<p>Processors with significant capital or access to capital. Treasury-focused operators. Processors operating in markets where the competitive advantage of zero-fee pricing is decisive.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model inverts the traditional processor incentive: the processor wants merchants to generate consistent, high-volume payment flows, since the value is in the aggregate balance, not the per-transaction fee. This aligns processor and merchant interests unusually well.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="69-model-pp-9-vertical-specific-processor">6.9 Model PP-9: Vertical-Specific Processor<a href="#69-model-pp-9-vertical-specific-processor" class="hash-link" aria-label="Direct link to 6.9 Model PP-9: Vertical-Specific Processor" title="Direct link to 6.9 Model PP-9: Vertical-Specific Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>Rather than targeting merchants broadly, the processor focuses on a single industry vertical — hospitality, logistics, freelance services, gaming, cross-border payroll — and builds the checkout and reconciliation experience around the specific needs of that vertical.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Any combination of transaction fees, subscriptions, and custodial services, priced for the vertical.</li>
+<li class="">Premium features specific to the vertical (e.g., split payments, recurring billing, escrow, multi-party disbursements).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Generic payment processors serve every merchant with the same product. A vertical-specific processor can offer deep integrations with the software merchants in that vertical already use, terminology and reporting that matches their workflows, and pricing structures that align with how that vertical transacts.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires domain expertise in the chosen vertical in addition to payment processing operations. Customer acquisition is narrower but conversion and retention are typically higher.</p>
+<p><strong>Suitable for</strong></p>
+<p>Founders with domain expertise in a specific industry. Processors entering a crowded market who need a differentiating focus.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-business-models-for-acquirers">7. Business Models for Acquirers<a href="#7-business-models-for-acquirers" class="hash-link" aria-label="Direct link to 7. Business Models for Acquirers" title="Direct link to 7. Business Models for Acquirers" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-model-aq-1-classic-distribution-acquirer">7.1 Model AQ-1: Classic Distribution Acquirer<a href="#71-model-aq-1-classic-distribution-acquirer" class="hash-link" aria-label="Direct link to 7.1 Model AQ-1: Classic Distribution Acquirer" title="Direct link to 7.1 Model AQ-1: Classic Distribution Acquirer" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The acquirer signs up merchants and refers them to a processor. When those merchants process payments, the acquirer&#x27;s ID is included in the transaction, and the acquirer automatically earns their commission from the Settlement Contract.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">On-chain acquiring commission on all transactions from referred merchants.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>A straightforward channel partnership. The acquirer provides merchant relationships; the processor provides infrastructure; the Settlement Contract enforces the commission automatically with no billing disputes.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Sales-focused. The primary investment is merchant acquisition: direct sales, marketing, and onboarding support. No technical infrastructure is required beyond a wallet to receive commissions.</p>
+<p><strong>Suitable for</strong></p>
+<p>Payment consultants, financial services agents, regional distributors, accountancy practices with merchant clients.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>Commission income scales with the volume of referred merchants and their payment volumes. Building a portfolio of active merchants is the core business activity. Unlike traditional referral arrangements, the commission is guaranteed by the Settlement Contract rather than dependent on the processor honouring a commercial agreement.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="72-model-aq-2-wallet-as-acquirer">7.2 Model AQ-2: Wallet-as-Acquirer<a href="#72-model-aq-2-wallet-as-acquirer" class="hash-link" aria-label="Direct link to 7.2 Model AQ-2: Wallet-as-Acquirer" title="Direct link to 7.2 Model AQ-2: Wallet-as-Acquirer" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A digital wallet developer registers as an acquirer on a Stablecoin Stack processor. The wallet&#x27;s users naturally include the acquirer ID in their payment payloads when paying at participating merchants. The wallet earns a commission on every transaction made through it.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Acquiring commission on all payments made through the wallet.</li>
+<li class="">Optional: wallet subscription or premium features (unrelated to the acquirer model).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The wallet converts its user base — payers — into a revenue-generating distribution channel. The more payers use the wallet, the more transactions carry the acquirer ID, and the more commission is earned. No interaction is required from merchants; merchants benefit from being reachable by wallet users.</p>
+<p><strong>Operational Profile</strong></p>
+<p>The acquirer&#x27;s investment is in building and maintaining a high-quality payer wallet. The acquiring commission is a passive revenue stream once the user base is established.</p>
+<p><strong>Suitable for</strong></p>
+<p>Wallet developers, digital banking apps, super-apps with a payment component, loyalty card applications.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model is novel. Traditional wallet providers do not earn commission from the payment networks whose transactions they facilitate. The Stablecoin Stack&#x27;s open acquiring model makes this possible for the first time.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="73-model-aq-3-point-of-sale-hardware-acquirer">7.3 Model AQ-3: Point-of-Sale Hardware Acquirer<a href="#73-model-aq-3-point-of-sale-hardware-acquirer" class="hash-link" aria-label="Direct link to 7.3 Model AQ-3: Point-of-Sale Hardware Acquirer" title="Direct link to 7.3 Model AQ-3: Point-of-Sale Hardware Acquirer" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A company manufactures or distributes point-of-sale terminals or QR code display devices that are pre-configured to direct payments through a specific processor with the hardware vendor&#x27;s acquirer ID embedded. Every payment made on a deployed device earns the hardware vendor an acquiring commission.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Acquiring commission on all transactions processed through deployed hardware.</li>
+<li class="">Hardware sales or rental revenue (independent of the acquirer model).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The hardware vendor creates a passive, ongoing revenue stream that continues for the life of each deployed device. A device installed at a merchant generates commission on every payment, indefinitely.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires hardware manufacturing or distribution capability and a commercial relationship with a Stablecoin Stack processor. The acquiring commission is entirely passive once hardware is deployed.</p>
+<p><strong>Suitable for</strong></p>
+<p>Payment terminal manufacturers, QR code display vendors, self-checkout system integrators, POS software companies.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model inverts the traditional hardware economics of the payments industry. Historically, terminal manufacturers earn from hardware sales; the payment economics flow to processors and card networks. Here, the terminal manufacturer participates directly in the payment economics, creating a recurring revenue stream on top of hardware margins.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="74-model-aq-4-regional-agent-network">7.4 Model AQ-4: Regional Agent Network<a href="#74-model-aq-4-regional-agent-network" class="hash-link" aria-label="Direct link to 7.4 Model AQ-4: Regional Agent Network" title="Direct link to 7.4 Model AQ-4: Regional Agent Network" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>An acquirer recruits a network of local agents — small business owners, community representatives, informal distributors — who each earn a share of the acquirer&#x27;s commission by signing up merchants in their area. The acquirer operates as a regional distribution hub, and agents operate as sub-distributors.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Acquiring commission (net of agent payouts) on all transactions from the agent network&#x27;s merchants.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Enables penetration of markets where formal sales channels do not reach. Local agents have trust relationships with local merchants that a centralised processor does not. The commission model creates aligned incentives throughout the network.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires agent recruitment, training, and management. Agent payouts are managed off-chain by the acquirer from the commissions received on-chain.</p>
+<p><strong>Suitable for</strong></p>
+<p>Operators targeting emerging markets or underserved geographies. Acquirers with community organising or franchise management experience.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="75-model-aq-5-platform-acquirer-marketplace-or-app-store">7.5 Model AQ-5: Platform Acquirer (Marketplace or App Store)<a href="#75-model-aq-5-platform-acquirer-marketplace-or-app-store" class="hash-link" aria-label="Direct link to 7.5 Model AQ-5: Platform Acquirer (Marketplace or App Store)" title="Direct link to 7.5 Model AQ-5: Platform Acquirer (Marketplace or App Store)" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A marketplace platform, app store, or SaaS company registers as an acquirer and embeds the Stablecoin Stack payment method into its platform. Merchants selling on the platform automatically use the platform&#x27;s acquirer ID for all transactions.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Acquiring commission on all transactions by platform merchants.</li>
+<li class="">Optional: incremental subscription revenue for payment acceptance as a feature.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The platform monetises its existing merchant base through payment commission without building payment infrastructure. Merchants benefit from an integrated, seamless payment experience.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires integration of the Stablecoin Stack checkout into the platform&#x27;s merchant onboarding and product listing flows. Beyond integration, the acquiring commission is passive.</p>
+<p><strong>Suitable for</strong></p>
+<p>E-commerce platform operators, B2B marketplaces, freelance platforms, app stores, SaaS companies with embedded commerce.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="76-model-aq-6-decentralised-autonomous-organisation-dao-acquirer">7.6 Model AQ-6: Decentralised Autonomous Organisation (DAO) Acquirer<a href="#76-model-aq-6-decentralised-autonomous-organisation-dao-acquirer" class="hash-link" aria-label="Direct link to 7.6 Model AQ-6: Decentralised Autonomous Organisation (DAO) Acquirer" title="Direct link to 7.6 Model AQ-6: Decentralised Autonomous Organisation (DAO) Acquirer" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A collectively governed organisation — a DAO — registers as an acquirer on a Stablecoin Stack processor. The acquiring commission flows into a shared treasury governed by the DAO&#x27;s members. Members may include merchants, payers, developers, or community contributors, who each hold governance rights over how the treasury is used.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Acquiring commission directed to the DAO treasury.</li>
+<li class="">Treasury yield on accumulated commissions.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>A community of merchants or users can collectively register as an acquirer, pool their commission income, and self-govern its use. This creates a model in which the participants in a payment network own a stake in the economics of that network — a structure that has no precedent in traditional payments.</p>
+<p>The DAO might, for example, use commission income to fund grants for open-source wallet development, subsidise merchant onboarding fees, or distribute earnings to members proportional to their payment volumes.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires establishing governance structures and tooling for the DAO. The Stablecoin Stack&#x27;s on-chain settlement and commission mechanism is naturally compatible with DAO treasury management.</p>
+<p><strong>Suitable for</strong></p>
+<p>Communities organised around a shared commercial interest. Open-source software ecosystems. Industry associations exploring shared payment infrastructure.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-combined-models-processor-and-acquirer-in-conjunction">8. Combined Models: Processor and Acquirer in Conjunction<a href="#8-combined-models-processor-and-acquirer-in-conjunction" class="hash-link" aria-label="Direct link to 8. Combined Models: Processor and Acquirer in Conjunction" title="Direct link to 8. Combined Models: Processor and Acquirer in Conjunction" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="81-model-c-1-vertically-integrated-full-stack-operator">8.1 Model C-1: Vertically Integrated Full-Stack Operator<a href="#81-model-c-1-vertically-integrated-full-stack-operator" class="hash-link" aria-label="Direct link to 8.1 Model C-1: Vertically Integrated Full-Stack Operator" title="Direct link to 8.1 Model C-1: Vertically Integrated Full-Stack Operator" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A single company operates both the payment processor infrastructure and registers itself as the acquirer for all directly acquired merchants. Every transaction processed by the company earns both the processor base fee and the acquirer commission.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Processor base fee on all transactions.</li>
+<li class="">Acquirer commission on self-originated transactions.</li>
+<li class="">Subscription fees (optional).</li>
+<li class="">Conversion spread and float income if operating a custodial service.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Maximum revenue capture per transaction. The company controls the full commercial relationship with merchants and payers.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires the full operational capability of both a processor and an acquirer. This is the model most comparable to traditional payment processors who manage the full stack.</p>
+<p><strong>Suitable for</strong></p>
+<p>Operators with sufficient capital and operational capacity to build a full-scale payment business.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="82-model-c-2-cooperative-payment-network">8.2 Model C-2: Cooperative Payment Network<a href="#82-model-c-2-cooperative-payment-network" class="hash-link" aria-label="Direct link to 8.2 Model C-2: Cooperative Payment Network" title="Direct link to 8.2 Model C-2: Cooperative Payment Network" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A group of companies or industry participants jointly funds and operates a Stablecoin Stack processor as a shared utility. Each participant registers as an acquirer and earns commission on the merchants they bring to the network. The processor infrastructure costs are shared across all participants.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Each participant earns acquirer commission on their merchant portfolio.</li>
+<li class="">Infrastructure costs are split, reducing the per-participant cost of operation.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>No single participant bears the full cost of processor infrastructure, but all participants benefit from a shared, reliable payment rail. Competition shifts to merchant acquisition and value-added services rather than infrastructure.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires a governance structure for the processor entity, shared infrastructure investment, and agreed operational protocols.</p>
+<p><strong>Suitable for</strong></p>
+<p>Industry associations, banking cooperatives, regional payment networks, trade bodies.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model enables groups of companies to launch a payment network that would be uneconomic for any single member to operate alone. It mirrors the cooperative model that underpinned the founding of major card networks, but without the proprietary infrastructure lock-in.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="83-model-c-3-franchise-payment-network">8.3 Model C-3: Franchise Payment Network<a href="#83-model-c-3-franchise-payment-network" class="hash-link" aria-label="Direct link to 8.3 Model C-3: Franchise Payment Network" title="Direct link to 8.3 Model C-3: Franchise Payment Network" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A franchisor establishes and operates the Stablecoin Stack processor infrastructure and recruits franchisees who operate as acquirers in defined geographic or vertical territories. The franchisor sets standards, provides tooling, and earns a base fee on all transactions. Franchisees earn acquiring commission on their territory&#x27;s merchants.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Franchisor: processor base fee on all transactions network-wide; franchise fees from franchisees.</li>
+<li class="">Franchisee: acquiring commission on merchants in their territory.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>The franchisor scales distribution rapidly without the operational overhead of managing a global direct sales force. Franchisees operate businesses with a defined revenue model and infrastructure support.</p>
+<p><strong>Operational Profile</strong></p>
+<p>Requires franchise agreement management, territory allocation, brand standards, and training programmes in addition to processor operations.</p>
+<p><strong>Suitable for</strong></p>
+<p>Companies with strong brand and operational systems seeking rapid geographic expansion.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-unorthodox-and-emerging-models">9. Unorthodox and Emerging Models<a href="#9-unorthodox-and-emerging-models" class="hash-link" aria-label="Direct link to 9. Unorthodox and Emerging Models" title="Direct link to 9. Unorthodox and Emerging Models" translate="no">​</a></h2>
+<p>The following models represent commercial structures that were difficult, impractical, or entirely impossible on traditional payment rails. They are presented here not as proven approaches but as commercially credible opportunities that the Stablecoin Stack&#x27;s architecture makes available for the first time.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="91-model-u-1-merchant-owned-processor-collective">9.1 Model U-1: Merchant-Owned Processor Collective<a href="#91-model-u-1-merchant-owned-processor-collective" class="hash-link" aria-label="Direct link to 9.1 Model U-1: Merchant-Owned Processor Collective" title="Direct link to 9.1 Model U-1: Merchant-Owned Processor Collective" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A group of merchants collectively deploys and owns a Stablecoin Stack processor, eliminating third-party processor fees entirely. Each merchant in the collective is also registered as an acquirer, earning commission on their own transactions — which flows back to themselves.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">For the collective: none externally. Fees collected internally fund infrastructure costs.</li>
+<li class="">For individual merchants: net reduction in payment cost compared to third-party processing.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Merchants pay the minimum fee necessary to sustain the infrastructure, rather than paying a margin to a commercial processor. This is the equivalent of a buying cooperative applied to payment processing.</p>
+<p><strong>Why This Was Not Previously Possible</strong></p>
+<p>Card network rules require merchants to transact through licensed acquirers and processors. A merchant cannot be its own acquirer in the card network model. The Stablecoin Stack has no such restriction; any entity can register as an acquirer on an open deployment, including the merchants themselves.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="92-model-u-2-pay-as-you-grow-revenue-share-onboarding">9.2 Model U-2: Pay-as-You-Grow (Revenue-Share Onboarding)<a href="#92-model-u-2-pay-as-you-grow-revenue-share-onboarding" class="hash-link" aria-label="Direct link to 9.2 Model U-2: Pay-as-You-Grow (Revenue-Share Onboarding)" title="Direct link to 9.2 Model U-2: Pay-as-You-Grow (Revenue-Share Onboarding)" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor onboards new merchants at zero upfront cost. Instead of charging subscription or setup fees, the processor takes a slightly higher transaction fee for an initial period, effectively recovering onboarding costs from merchant revenue rather than charging in advance.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Higher transaction fee during the revenue-share period.</li>
+<li class="">Standard transaction fee or subscription thereafter.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Removes the barrier of upfront cost for new merchants. Particularly effective for early-stage businesses with low initial volume but high growth potential.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>The instant settlement model makes this less risky for the processor than in traditional payments: the processor earns each fee at the moment of settlement. There is no credit exposure to the merchant.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="93-model-u-3-refund-as-a-service">9.3 Model U-3: Refund-as-a-Service<a href="#93-model-u-3-refund-as-a-service" class="hash-link" aria-label="Direct link to 9.3 Model U-3: Refund-as-a-Service" title="Direct link to 9.3 Model U-3: Refund-as-a-Service" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A custodial processor offers refund management as a premium service. Because on-chain payments are irreversible, the processor implements refunds at the fiat disbursement layer: a merchant can request a refund on a settled transaction, and the processor reverses the fiat disbursement and credits the payer from the processor&#x27;s own funds.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Premium subscription tier that includes refund capability.</li>
+<li class="">Per-refund fee.</li>
+<li class="">Float income on merchant balances pending disbursement (a by-product of the custodial model).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Merchants operating in consumer retail typically need to offer refunds to meet customer service expectations and regulatory requirements. A processor who manages this in the fiat layer provides a complete replacement for the card chargeback mechanism, without the card network&#x27;s chargeback costs or dispute infrastructure.</p>
+<p><strong>Why This Is Different From Traditional Chargebacks</strong></p>
+<p>A card chargeback is initiated by the card issuer, often weeks after the transaction, and the merchant has limited ability to contest it. In this model, refunds are merchant-initiated and processor-managed. The processor has full visibility of the transaction and has already verified the payment cryptographically. There is no third-party dispute mechanism; the processor serves as the final arbiter of refund requests under whatever policy the merchant and processor have agreed.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="94-model-u-4-payment-data-marketplace">9.4 Model U-4: Payment Data Marketplace<a href="#94-model-u-4-payment-data-marketplace" class="hash-link" aria-label="Direct link to 9.4 Model U-4: Payment Data Marketplace" title="Direct link to 9.4 Model U-4: Payment Data Marketplace" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>A processor — with explicit merchant consent and appropriate regulatory compliance — aggregates anonymised transaction data across its merchant network and offers commercial access to this data to market research firms, financial analysts, or consumer behaviour researchers.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Data licensing fees.</li>
+<li class="">Custom analytics subscription.</li>
+<li class="">Core payment processing fees (independent revenue stream).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Transaction data is among the most valuable datasets in commercial analytics. A processor with significant transaction volume possesses insights into consumer spending patterns, merchant performance, and market dynamics that are not available from any other source.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>This model requires robust consent management and regulatory compliance (GDPR and equivalent frameworks in other jurisdictions). It is included here not as a primary model but as a secondary revenue stream available to processors at scale.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="95-model-u-5-treasury-as-a-service-processor">9.5 Model U-5: Treasury-as-a-Service Processor<a href="#95-model-u-5-treasury-as-a-service-processor" class="hash-link" aria-label="Direct link to 9.5 Model U-5: Treasury-as-a-Service Processor" title="Direct link to 9.5 Model U-5: Treasury-as-a-Service Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor offers merchants a managed treasury service: instead of immediately converting stablecoin receipts to fiat, the processor holds the merchant&#x27;s stablecoin balance and deploys it in yield-generating strategies, passing a share of the yield to the merchant while retaining a management fee.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Treasury management fee (percentage of assets under management or share of yield).</li>
+<li class="">Core payment processing fees.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Merchants who receive stablecoin payments but have no treasury expertise can earn a return on their payment receipts without managing the complexity themselves. The processor adds a financial management layer on top of the payment layer.</p>
+<p><strong>Why This Is New</strong></p>
+<p>Traditional payment processors settle in fiat and have no ability to offer yield on merchant funds between receipt and disbursement — they have no commercial relationship with the funds once disbursed. A custodial Stablecoin Stack processor who holds stablecoin balances can offer this naturally.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="96-model-u-6-on-chain-dao-processor">9.6 Model U-6: On-Chain DAO Processor<a href="#96-model-u-6-on-chain-dao-processor" class="hash-link" aria-label="Direct link to 9.6 Model U-6: On-Chain DAO Processor" title="Direct link to 9.6 Model U-6: On-Chain DAO Processor" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The payment processor itself is governed as a DAO. The Settlement Contract, fee parameters, and operational decisions are subject to on-chain governance by token holders. Revenue generated by the processor is directed to the DAO treasury and distributed to governance participants.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Transaction fees directed to the DAO treasury.</li>
+<li class="">Treasury yield.</li>
+<li class="">Governance token appreciation (not a direct revenue model, but a value capture mechanism for participants).</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>A processor governed as a DAO is owned by its participants — which could include merchants, acquirers, wallet developers, and community members. No single entity captures all the economics. Governance rights create aligned incentives across the ecosystem.</p>
+<p><strong>Why This Is Possible Now</strong></p>
+<p>On-chain governance and treasury management infrastructure is mature and well-tested. The Stablecoin Stack&#x27;s Settlement Contract is already an on-chain component; adding governance mechanisms is an architectural extension. A DAO-governed processor is the natural endpoint of a fully open payment network.</p>
+<p><strong>Notable Consideration</strong></p>
+<p>Operating a DAO-governed processor introduces governance complexity and requires a carefully designed token economics model. It is not suitable as a first deployment but represents a compelling long-term evolution for a mature processor network.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="97-model-u-7-loyalty-and-rewards-infrastructure">9.7 Model U-7: Loyalty and Rewards Infrastructure<a href="#97-model-u-7-loyalty-and-rewards-infrastructure" class="hash-link" aria-label="Direct link to 9.7 Model U-7: Loyalty and Rewards Infrastructure" title="Direct link to 9.7 Model U-7: Loyalty and Rewards Infrastructure" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor integrates a loyalty programme at the payment layer. When a payer makes a payment, the Settlement Contract (or an accompanying smart contract) automatically issues loyalty points or cashback to the payer&#x27;s wallet. The processor charges merchants a higher processing fee in exchange for the loyalty mechanism, which drives higher payer engagement and repeat visits to participating merchants.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Higher processing fee from merchants who opt into the loyalty programme.</li>
+<li class="">Optional: programme management fee.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Loyalty programmes have historically been operated separately from payment infrastructure, requiring bilateral integrations and delayed reconciliation. Embedding loyalty at the payment layer — so that every payment automatically triggers a loyalty credit — creates a seamless experience for both merchants and payers.</p>
+<p><strong>Why This Is New</strong></p>
+<p>Card network loyalty programmes are managed by card issuers, not processors. The processor has no ability to modify the economics of each transaction to include loyalty in the card model. In the Stablecoin Stack model, the processor can include any logic at the payment layer, including loyalty credits, because the Settlement Contract is programmable and open.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="98-model-u-8-programmable-escrow-service">9.8 Model U-8: Programmable Escrow Service<a href="#98-model-u-8-programmable-escrow-service" class="hash-link" aria-label="Direct link to 9.8 Model U-8: Programmable Escrow Service" title="Direct link to 9.8 Model U-8: Programmable Escrow Service" translate="no">​</a></h3>
+<p><strong>Overview</strong></p>
+<p>The processor offers an escrow service where payment funds are held by the Settlement Contract — or a companion contract — until defined conditions are met. For example, a marketplace transaction might hold payment in escrow until the buyer confirms delivery, at which point the contract releases funds to the seller.</p>
+<p><strong>Revenue Sources</strong></p>
+<ul>
+<li class="">Escrow service fee (flat per transaction or percentage).</li>
+<li class="">Core processing fee.</li>
+<li class="">Float income on escrowed funds.</li>
+</ul>
+<p><strong>Value Proposition</strong></p>
+<p>Escrow services in traditional commerce require a trusted third party and significant legal and operational infrastructure. Programmable escrow in the Stablecoin Stack model can be implemented in smart contract logic: the conditions are defined at the time of payment, and execution is automatic and trustless. This makes escrow economically viable for transactions of any size, including small individual purchases.</p>
+<p><strong>Why This Was Not Previously Practical</strong></p>
+<p>Traditional escrow requires legal infrastructure and minimum transaction sizes to justify the overhead. Programmable smart contract escrow has marginal cost near zero per transaction, making it viable for everyday commerce. The Stablecoin Stack&#x27;s open architecture allows a processor to extend the Settlement Contract with escrow logic while remaining conformant with the base specification.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-comparative-summary">10. Comparative Summary<a href="#10-comparative-summary" class="hash-link" aria-label="Direct link to 10. Comparative Summary" title="Direct link to 10. Comparative Summary" translate="no">​</a></h2>
+<p>The following table provides a simplified comparison of the models described in this document across key commercial dimensions.</p>
+<table><thead><tr><th>Model</th><th>Custody</th><th>Primary Revenue</th><th>Complexity</th><th>Regulatory Exposure</th><th>Best For</th></tr></thead><tbody><tr><td>PP-1: Transaction-Fee</td><td>Non-custodial</td><td>On-chain fee</td><td>Low</td><td>Low</td><td>Entry-level, developer-focused</td></tr><tr><td>PP-2: Subscription</td><td>Non-custodial</td><td>Subscription (fiat)</td><td>Low–Medium</td><td>Low</td><td>SME/enterprise B2B</td></tr><tr><td>PP-3: Blended Fee</td><td>Non-custodial</td><td>Fee + subscription</td><td>Medium</td><td>Low–Medium</td><td>General-purpose processors</td></tr><tr><td>PP-4: Custodial Fiat-Out</td><td>Custodial</td><td>Fee + spread + float</td><td>High</td><td>High</td><td>Mainstream merchant adoption</td></tr><tr><td>PP-5: White-Label</td><td>Either</td><td>Licence / revenue share</td><td>Medium</td><td>Medium</td><td>Wholesale distribution</td></tr><tr><td>PP-6: SaaS Infra</td><td>Either</td><td>SaaS subscription</td><td>High</td><td>Medium</td><td>Infrastructure-as-a-Service</td></tr><tr><td>PP-7: Embedded Finance</td><td>Either</td><td>Revenue share</td><td>Medium</td><td>Medium</td><td>Platform partnerships</td></tr><tr><td>PP-8: Float-Yield</td><td>Either</td><td>Float yield</td><td>High</td><td>High</td><td>Capital-heavy operators</td></tr><tr><td>PP-9: Vertical-Specific</td><td>Either</td><td>Fee + premium features</td><td>Medium</td><td>Varies</td><td>Domain-expert founders</td></tr><tr><td>AQ-1: Distribution</td><td>N/A</td><td>Acquiring commission</td><td>Low</td><td>Low</td><td>Sales-driven agents</td></tr><tr><td>AQ-2: Wallet</td><td>N/A</td><td>Acquiring commission</td><td>Low</td><td>Low</td><td>Wallet developers</td></tr><tr><td>AQ-3: POS Hardware</td><td>N/A</td><td>Commission + hardware</td><td>Medium</td><td>Low–Medium</td><td>Hardware vendors</td></tr><tr><td>AQ-4: Agent Network</td><td>N/A</td><td>Commission (net)</td><td>Medium</td><td>Low</td><td>Emerging markets</td></tr><tr><td>AQ-5: Platform</td><td>N/A</td><td>Commission</td><td>Low–Medium</td><td>Low</td><td>Marketplace operators</td></tr><tr><td>AQ-6: DAO Acquirer</td><td>N/A</td><td>Commission → treasury</td><td>Medium</td><td>Varies</td><td>Community-governed networks</td></tr><tr><td>C-1: Vertically Integrated</td><td>Either</td><td>Full stack</td><td>High</td><td>High</td><td>Full-scale operators</td></tr><tr><td>C-2: Cooperative Network</td><td>Either</td><td>Shared commission</td><td>High</td><td>Medium</td><td>Industry cooperatives</td></tr><tr><td>C-3: Franchise Network</td><td>Either</td><td>Fee + franchise</td><td>High</td><td>Medium</td><td>Rapid-scale operators</td></tr><tr><td>U-1: Merchant Collective</td><td>Self</td><td>Cost reduction</td><td>Medium</td><td>Low</td><td>High-volume merchant groups</td></tr><tr><td>U-2: Pay-as-You-Grow</td><td>Either</td><td>Deferred fee</td><td>Low–Medium</td><td>Low</td><td>Merchant acquisition</td></tr><tr><td>U-3: Refund-as-a-Service</td><td>Custodial</td><td>Premium subscription</td><td>Medium</td><td>Medium</td><td>Consumer retail processors</td></tr><tr><td>U-4: Data Marketplace</td><td>Either</td><td>Data licensing</td><td>Medium</td><td>High</td><td>Scale operators</td></tr><tr><td>U-5: Treasury-as-a-Service</td><td>Custodial</td><td>Management fee</td><td>High</td><td>High</td><td>Merchant treasury service</td></tr><tr><td>U-6: DAO Processor</td><td>Either</td><td>On-chain revenue</td><td>High</td><td>Varies</td><td>Community-owned networks</td></tr><tr><td>U-7: Loyalty Infrastructure</td><td>Either</td><td>Premium merchant fee</td><td>Medium</td><td>Low</td><td>Merchant engagement platforms</td></tr><tr><td>U-8: Programmable Escrow</td><td>Custodial (contract)</td><td>Escrow fee</td><td>Medium</td><td>Medium</td><td>Marketplace and P2P commerce</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-guidance-for-new-entrants">11. Guidance for New Entrants<a href="#11-guidance-for-new-entrants" class="hash-link" aria-label="Direct link to 11. Guidance for New Entrants" title="Direct link to 11. Guidance for New Entrants" translate="no">​</a></h2>
+<p>The following principles are offered as practical orientation for companies evaluating whether and how to build on the Stablecoin Stack.</p>
+<p><strong>Start with the simplest model that generates revenue.</strong> The blended fee model (PP-3) is a good default starting point for most general-purpose processors. It provides predictable base revenue through subscriptions and volume-correlated upside through transaction fees. Complexity can be added as the business grows.</p>
+<p><strong>Let the open-source infrastructure work for you.</strong> The full technical stack — Settlement Contract, Checkout Engine, Broadcast Layer, reference wallet — is available without licence cost. The Foundation&#x27;s goal is adoption. The investment required to become a payment processor with the Stablecoin Stack is operational, not technical.</p>
+<p><strong>Choose your position on the custody spectrum deliberately.</strong> The non-custodial model is simpler, faster to deploy, and has lower regulatory exposure. The custodial model opens more revenue streams but requires more infrastructure. Most early deployments start non-custodial and add custodial services once the core business is established.</p>
+<p><strong>The acquirer model is an underutilised distribution mechanism.</strong> Most discussions of payment processing focus on the processor role. The acquirer mechanism in the Stablecoin Stack is a powerful and underappreciated tool for building distribution networks with aligned financial incentives that are enforced on-chain, without bilateral trust arrangements.</p>
+<p><strong>The irreversibility of payments is a commercial advantage, not a limitation.</strong> Many processors initially perceive the absence of a native chargeback mechanism as a disadvantage. In practice, it eliminates an entire category of operational overhead and fraud exposure. The refund-as-a-service model (U-3) shows how consumer-friendly refund policies can be maintained at the fiat disbursement layer without the systemic costs of network-level chargebacks.</p>
+<p><strong>Settlement speed is a merchant value proposition, not just a technical feature.</strong> The ability to tell a merchant that they will receive funds in their wallet within seconds of a payment — not the following business day — is a concrete, quantifiable advantage over traditional payment rails. Building commercial messaging around this advantage is effective, particularly for merchants with cash flow sensitivity.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-license">12. License<a href="#12-license" class="hash-link" aria-label="Direct link to 12. License" title="Direct link to 12. License" translate="no">​</a></h2>
+<p>Copyright © 2026 Stablecoin Stack Foundation. All rights reserved.</p>
+<p>This document is published under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" class="">Apache License, Version 2.0</a>. Unless required by applicable law or agreed to in writing, material distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/stablecoin-stack/stablecoin-stack/tree/main/docs/ssf-spec-001/business-model/business-model.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ssf-spec-002/business-model"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Business Model</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ssf-spec-001/governance"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Governance</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of Contents</a></li><li><a href="#1-purpose-of-this-document" class="table-of-contents__link toc-highlight">1. Purpose of This Document</a></li><li><a href="#2-context-what-the-stablecoin-stack-makes-possible" class="table-of-contents__link toc-highlight">2. Context: What the Stablecoin Stack Makes Possible</a><ul><li><a href="#21-the-problem-being-solved" class="table-of-contents__link toc-highlight">2.1 The Problem Being Solved</a></li><li><a href="#22-what-the-stack-provides-out-of-the-box" class="table-of-contents__link toc-highlight">2.2 What the Stack Provides Out of the Box</a></li><li><a href="#23-structural-advantages-of-the-payment-rails" class="table-of-contents__link toc-highlight">2.3 Structural Advantages of the Payment Rails</a></li></ul></li><li><a href="#3-roles-and-responsibilities-in-the-commercial-ecosystem" class="table-of-contents__link toc-highlight">3. Roles and Responsibilities in the Commercial Ecosystem</a><ul><li><a href="#31-the-payment-processor" class="table-of-contents__link toc-highlight">3.1 The Payment Processor</a></li><li><a href="#32-the-acquirer" class="table-of-contents__link toc-highlight">3.2 The Acquirer</a></li><li><a href="#33-combined-roles" class="table-of-contents__link toc-highlight">3.3 Combined Roles</a></li></ul></li><li><a href="#4-revenue-primitives" class="table-of-contents__link toc-highlight">4. Revenue Primitives</a><ul><li><a href="#41-transaction-fees-on-chain" class="table-of-contents__link toc-highlight">4.1 Transaction Fees (On-Chain)</a></li><li><a href="#42-subscription-fees-fiat" class="table-of-contents__link toc-highlight">4.2 Subscription Fees (Fiat)</a></li><li><a href="#43-acquirer-commission" class="table-of-contents__link toc-highlight">4.3 Acquirer Commission</a></li><li><a href="#44-custody-and-conversion-spread" class="table-of-contents__link toc-highlight">4.4 Custody and Conversion Spread</a></li><li><a href="#45-float-income" class="table-of-contents__link toc-highlight">4.5 Float Income</a></li></ul></li><li><a href="#5-custody-spectrum-a-critical-commercial-dimension" class="table-of-contents__link toc-highlight">5. Custody Spectrum: A Critical Commercial Dimension</a><ul><li><a href="#51-non-custodial-model" class="table-of-contents__link toc-highlight">5.1 Non-Custodial Model</a></li><li><a href="#52-custodial-model" class="table-of-contents__link toc-highlight">5.2 Custodial Model</a></li><li><a href="#53-hybrid-model" class="table-of-contents__link toc-highlight">5.3 Hybrid Model</a></li></ul></li><li><a href="#6-business-models-for-payment-processors" class="table-of-contents__link toc-highlight">6. Business Models for Payment Processors</a><ul><li><a href="#61-model-pp-1-transaction-fee-processor" class="table-of-contents__link toc-highlight">6.1 Model PP-1: Transaction-Fee Processor</a></li><li><a href="#62-model-pp-2-subscription-based-processor" class="table-of-contents__link toc-highlight">6.2 Model PP-2: Subscription-Based Processor</a></li><li><a href="#63-model-pp-3-blended-fee-processor" class="table-of-contents__link toc-highlight">6.3 Model PP-3: Blended Fee Processor</a></li><li><a href="#64-model-pp-4-custodial-full-service-processor-fiat-out" class="table-of-contents__link toc-highlight">6.4 Model PP-4: Custodial Full-Service Processor (Fiat-Out)</a></li><li><a href="#65-model-pp-5-white-label-processor" class="table-of-contents__link toc-highlight">6.5 Model PP-5: White-Label Processor</a></li><li><a href="#66-model-pp-6-saas-infrastructure-provider" class="table-of-contents__link toc-highlight">6.6 Model PP-6: SaaS Infrastructure Provider</a></li><li><a href="#67-model-pp-7-embedded-finance-processor" class="table-of-contents__link toc-highlight">6.7 Model PP-7: Embedded Finance Processor</a></li><li><a href="#68-model-pp-8-float-yield-processor-zero-fee" class="table-of-contents__link toc-highlight">6.8 Model PP-8: Float-Yield Processor (Zero-Fee)</a></li><li><a href="#69-model-pp-9-vertical-specific-processor" class="table-of-contents__link toc-highlight">6.9 Model PP-9: Vertical-Specific Processor</a></li></ul></li><li><a href="#7-business-models-for-acquirers" class="table-of-contents__link toc-highlight">7. Business Models for Acquirers</a><ul><li><a href="#71-model-aq-1-classic-distribution-acquirer" class="table-of-contents__link toc-highlight">7.1 Model AQ-1: Classic Distribution Acquirer</a></li><li><a href="#72-model-aq-2-wallet-as-acquirer" class="table-of-contents__link toc-highlight">7.2 Model AQ-2: Wallet-as-Acquirer</a></li><li><a href="#73-model-aq-3-point-of-sale-hardware-acquirer" class="table-of-contents__link toc-highlight">7.3 Model AQ-3: Point-of-Sale Hardware Acquirer</a></li><li><a href="#74-model-aq-4-regional-agent-network" class="table-of-contents__link toc-highlight">7.4 Model AQ-4: Regional Agent Network</a></li><li><a href="#75-model-aq-5-platform-acquirer-marketplace-or-app-store" class="table-of-contents__link toc-highlight">7.5 Model AQ-5: Platform Acquirer (Marketplace or App Store)</a></li><li><a href="#76-model-aq-6-decentralised-autonomous-organisation-dao-acquirer" class="table-of-contents__link toc-highlight">7.6 Model AQ-6: Decentralised Autonomous Organisation (DAO) Acquirer</a></li></ul></li><li><a href="#8-combined-models-processor-and-acquirer-in-conjunction" class="table-of-contents__link toc-highlight">8. Combined Models: Processor and Acquirer in Conjunction</a><ul><li><a href="#81-model-c-1-vertically-integrated-full-stack-operator" class="table-of-contents__link toc-highlight">8.1 Model C-1: Vertically Integrated Full-Stack Operator</a></li><li><a href="#82-model-c-2-cooperative-payment-network" class="table-of-contents__link toc-highlight">8.2 Model C-2: Cooperative Payment Network</a></li><li><a href="#83-model-c-3-franchise-payment-network" class="table-of-contents__link toc-highlight">8.3 Model C-3: Franchise Payment Network</a></li></ul></li><li><a href="#9-unorthodox-and-emerging-models" class="table-of-contents__link toc-highlight">9. Unorthodox and Emerging Models</a><ul><li><a href="#91-model-u-1-merchant-owned-processor-collective" class="table-of-contents__link toc-highlight">9.1 Model U-1: Merchant-Owned Processor Collective</a></li><li><a href="#92-model-u-2-pay-as-you-grow-revenue-share-onboarding" class="table-of-contents__link toc-highlight">9.2 Model U-2: Pay-as-You-Grow (Revenue-Share Onboarding)</a></li><li><a href="#93-model-u-3-refund-as-a-service" class="table-of-contents__link toc-highlight">9.3 Model U-3: Refund-as-a-Service</a></li><li><a href="#94-model-u-4-payment-data-marketplace" class="table-of-contents__link toc-highlight">9.4 Model U-4: Payment Data Marketplace</a></li><li><a href="#95-model-u-5-treasury-as-a-service-processor" class="table-of-contents__link toc-highlight">9.5 Model U-5: Treasury-as-a-Service Processor</a></li><li><a href="#96-model-u-6-on-chain-dao-processor" class="table-of-contents__link toc-highlight">9.6 Model U-6: On-Chain DAO Processor</a></li><li><a href="#97-model-u-7-loyalty-and-rewards-infrastructure" class="table-of-contents__link toc-highlight">9.7 Model U-7: Loyalty and Rewards Infrastructure</a></li><li><a href="#98-model-u-8-programmable-escrow-service" class="table-of-contents__link toc-highlight">9.8 Model U-8: Programmable Escrow Service</a></li></ul></li><li><a href="#10-comparative-summary" class="table-of-contents__link toc-highlight">10. Comparative Summary</a></li><li><a href="#11-guidance-for-new-entrants" class="table-of-contents__link toc-highlight">11. Guidance for New Entrants</a></li><li><a href="#12-license" class="table-of-contents__link toc-highlight">12. License</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.com/invite/uwqABcG8rm" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/stablecoinstack" target="_blank" rel="noopener noreferrer" class="footer__link-item">X (Twitter)<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://stablecoinstack.org/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog / Updates</a></li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/icon-blue-bg.png" alt="Stablecoin stack logo" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE" width="80"><img src="/img/icon-blue-bg.png" alt="Stablecoin stack logo" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU" width="80"></div><div class="footer__copyright">
+    © 2026 Stablecoin Stack Foundation.
+    MIT License. Stablecoin Stack is open-source and community-driven.
+  </div></div></div></footer></div>
+</body>
+</html>
